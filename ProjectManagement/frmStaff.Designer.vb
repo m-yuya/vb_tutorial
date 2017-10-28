@@ -257,6 +257,7 @@ Partial Class frmStaff
         'Staff_codeTextBox
         '
         Me.Staff_codeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_staffBindingSource, "staff_code", True))
+        Me.Staff_codeTextBox.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.Staff_codeTextBox.Location = New System.Drawing.Point(131, 46)
         Me.Staff_codeTextBox.Name = "Staff_codeTextBox"
         Me.Staff_codeTextBox.Size = New System.Drawing.Size(56, 19)
@@ -265,6 +266,7 @@ Partial Class frmStaff
         'Staff_nameTextBox
         '
         Me.Staff_nameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_staffBindingSource, "staff_name", True))
+        Me.Staff_nameTextBox.ImeMode = System.Windows.Forms.ImeMode.Hiragana
         Me.Staff_nameTextBox.Location = New System.Drawing.Point(131, 71)
         Me.Staff_nameTextBox.Name = "Staff_nameTextBox"
         Me.Staff_nameTextBox.Size = New System.Drawing.Size(141, 19)
@@ -273,6 +275,7 @@ Partial Class frmStaff
         'Staff_kanaTextBox
         '
         Me.Staff_kanaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_staffBindingSource, "staff_kana", True))
+        Me.Staff_kanaTextBox.ImeMode = System.Windows.Forms.ImeMode.Hiragana
         Me.Staff_kanaTextBox.Location = New System.Drawing.Point(131, 96)
         Me.Staff_kanaTextBox.Name = "Staff_kanaTextBox"
         Me.Staff_kanaTextBox.Size = New System.Drawing.Size(141, 19)
@@ -281,6 +284,7 @@ Partial Class frmStaff
         'EmailTextBox
         '
         Me.EmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_staffBindingSource, "email", True))
+        Me.EmailTextBox.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.EmailTextBox.Location = New System.Drawing.Point(131, 171)
         Me.EmailTextBox.Name = "EmailTextBox"
         Me.EmailTextBox.Size = New System.Drawing.Size(200, 19)
@@ -289,6 +293,7 @@ Partial Class frmStaff
         'Ext_phoneTextBox
         '
         Me.Ext_phoneTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_staffBindingSource, "ext_phone", True))
+        Me.Ext_phoneTextBox.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.Ext_phoneTextBox.Location = New System.Drawing.Point(131, 196)
         Me.Ext_phoneTextBox.Name = "Ext_phoneTextBox"
         Me.Ext_phoneTextBox.Size = New System.Drawing.Size(56, 19)
@@ -308,6 +313,7 @@ Partial Class frmStaff
         'MemoTextBox
         '
         Me.MemoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_staffBindingSource, "memo", True))
+        Me.MemoTextBox.ImeMode = System.Windows.Forms.ImeMode.Hiragana
         Me.MemoTextBox.Location = New System.Drawing.Point(131, 221)
         Me.MemoTextBox.Multiline = True
         Me.MemoTextBox.Name = "MemoTextBox"
@@ -317,6 +323,7 @@ Partial Class frmStaff
         'Input_dateDateTimePicker
         '
         Me.Input_dateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.Tbl_staffBindingSource, "input_date", True))
+        Me.Input_dateDateTimePicker.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.Input_dateDateTimePicker.Location = New System.Drawing.Point(131, 356)
         Me.Input_dateDateTimePicker.Name = "Input_dateDateTimePicker"
         Me.Input_dateDateTimePicker.Size = New System.Drawing.Size(124, 19)
