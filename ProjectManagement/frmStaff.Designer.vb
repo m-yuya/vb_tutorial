@@ -26,16 +26,12 @@ Partial Class frmStaff
         Dim Staff_codeLabel As System.Windows.Forms.Label
         Dim Staff_nameLabel As System.Windows.Forms.Label
         Dim Staff_kanaLabel As System.Windows.Forms.Label
-        Dim Staff_sectionLabel As System.Windows.Forms.Label
         Dim EmailLabel As System.Windows.Forms.Label
         Dim Ext_phoneLabel As System.Windows.Forms.Label
         Dim MemoLabel As System.Windows.Forms.Label
         Dim Input_dateLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStaff))
-        Me.Project_jobDataSet = New ProjectManagement.project_jobDataSet()
-        Me.Tbl_staffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Tbl_staffTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_staffTableAdapter()
-        Me.TableAdapterManager = New ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager()
+        Dim Staff_sectionLabel1 As System.Windows.Forms.Label
         Me.Tbl_staffBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
@@ -52,7 +48,6 @@ Partial Class frmStaff
         Me.Staff_codeTextBox = New System.Windows.Forms.TextBox()
         Me.Staff_nameTextBox = New System.Windows.Forms.TextBox()
         Me.Staff_kanaTextBox = New System.Windows.Forms.TextBox()
-        Me.Staff_sectionTextBox = New System.Windows.Forms.TextBox()
         Me.EmailTextBox = New System.Windows.Forms.TextBox()
         Me.Ext_phoneTextBox = New System.Windows.Forms.TextBox()
         Me.Resign_flagCheckBox = New System.Windows.Forms.CheckBox()
@@ -60,20 +55,28 @@ Partial Class frmStaff
         Me.Input_dateDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.rdbMale = New System.Windows.Forms.RadioButton()
-        Me.tdbFemale = New System.Windows.Forms.RadioButton()
+        Me.rdbFemale = New System.Windows.Forms.RadioButton()
+        Me.Staff_sectionComboBox = New System.Windows.Forms.ComboBox()
+        Me.Tbl_staffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Project_jobDataSet = New ProjectManagement.project_jobDataSet()
+        Me.Tbl_staffTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_staffTableAdapter()
+        Me.TableAdapterManager = New ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager()
+        Me.Tbl_sectionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Tbl_sectionTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_sectionTableAdapter()
         Staff_codeLabel = New System.Windows.Forms.Label()
         Staff_nameLabel = New System.Windows.Forms.Label()
         Staff_kanaLabel = New System.Windows.Forms.Label()
-        Staff_sectionLabel = New System.Windows.Forms.Label()
         EmailLabel = New System.Windows.Forms.Label()
         Ext_phoneLabel = New System.Windows.Forms.Label()
         MemoLabel = New System.Windows.Forms.Label()
         Input_dateLabel = New System.Windows.Forms.Label()
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Tbl_staffBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Staff_sectionLabel1 = New System.Windows.Forms.Label()
         CType(Me.Tbl_staffBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tbl_staffBindingNavigator.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.Tbl_staffBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Tbl_sectionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Staff_codeLabel
@@ -103,15 +106,6 @@ Partial Class frmStaff
         Staff_kanaLabel.Size = New System.Drawing.Size(74, 12)
         Staff_kanaLabel.TabIndex = 5
         Staff_kanaLabel.Text = "スタッフ名カナ："
-        '
-        'Staff_sectionLabel
-        '
-        Staff_sectionLabel.AutoSize = True
-        Staff_sectionLabel.Location = New System.Drawing.Point(27, 149)
-        Staff_sectionLabel.Name = "Staff_sectionLabel"
-        Staff_sectionLabel.Size = New System.Drawing.Size(59, 12)
-        Staff_sectionLabel.TabIndex = 9
-        Staff_sectionLabel.Text = "所属部署："
         '
         'EmailLabel
         '
@@ -149,26 +143,6 @@ Partial Class frmStaff
         Input_dateLabel.TabIndex = 25
         Input_dateLabel.Text = "入力日："
         '
-        'Project_jobDataSet
-        '
-        Me.Project_jobDataSet.DataSetName = "project_jobDataSet"
-        Me.Project_jobDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Tbl_staffBindingSource
-        '
-        Me.Tbl_staffBindingSource.DataMember = "tbl_staff"
-        Me.Tbl_staffBindingSource.DataSource = Me.Project_jobDataSet
-        '
-        'Tbl_staffTableAdapter
-        '
-        Me.Tbl_staffTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.tbl_staffTableAdapter = Me.Tbl_staffTableAdapter
-        Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
         'Tbl_staffBindingNavigator
         '
         Me.Tbl_staffBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
@@ -183,7 +157,7 @@ Partial Class frmStaff
         Me.Tbl_staffBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.Tbl_staffBindingNavigator.Name = "Tbl_staffBindingNavigator"
         Me.Tbl_staffBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.Tbl_staffBindingNavigator.Size = New System.Drawing.Size(351, 25)
+        Me.Tbl_staffBindingNavigator.Size = New System.Drawing.Size(363, 25)
         Me.Tbl_staffBindingNavigator.TabIndex = 0
         Me.Tbl_staffBindingNavigator.Text = "BindingNavigator1"
         '
@@ -304,14 +278,6 @@ Partial Class frmStaff
         Me.Staff_kanaTextBox.Size = New System.Drawing.Size(141, 19)
         Me.Staff_kanaTextBox.TabIndex = 6
         '
-        'Staff_sectionTextBox
-        '
-        Me.Staff_sectionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_staffBindingSource, "staff_section", True))
-        Me.Staff_sectionTextBox.Location = New System.Drawing.Point(131, 146)
-        Me.Staff_sectionTextBox.Name = "Staff_sectionTextBox"
-        Me.Staff_sectionTextBox.Size = New System.Drawing.Size(31, 19)
-        Me.Staff_sectionTextBox.TabIndex = 10
-        '
         'EmailTextBox
         '
         Me.EmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_staffBindingSource, "email", True))
@@ -357,10 +323,11 @@ Partial Class frmStaff
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.rdbFemale)
         Me.GroupBox1.Controls.Add(Me.rdbMale)
         Me.GroupBox1.Location = New System.Drawing.Point(278, 49)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(61, 66)
+        Me.GroupBox1.Size = New System.Drawing.Size(65, 77)
         Me.GroupBox1.TabIndex = 27
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "性別"
@@ -376,23 +343,76 @@ Partial Class frmStaff
         Me.rdbMale.Text = "男性"
         Me.rdbMale.UseVisualStyleBackColor = True
         '
-        'tdbFemale
+        'rdbFemale
         '
-        Me.tdbFemale.AutoSize = True
-        Me.tdbFemale.Location = New System.Drawing.Point(284, 90)
-        Me.tdbFemale.Name = "tdbFemale"
-        Me.tdbFemale.Size = New System.Drawing.Size(47, 16)
-        Me.tdbFemale.TabIndex = 1
-        Me.tdbFemale.TabStop = True
-        Me.tdbFemale.Text = "女性"
-        Me.tdbFemale.UseVisualStyleBackColor = True
+        Me.rdbFemale.AutoSize = True
+        Me.rdbFemale.Location = New System.Drawing.Point(6, 41)
+        Me.rdbFemale.Name = "rdbFemale"
+        Me.rdbFemale.Size = New System.Drawing.Size(47, 16)
+        Me.rdbFemale.TabIndex = 1
+        Me.rdbFemale.TabStop = True
+        Me.rdbFemale.Text = "女性"
+        Me.rdbFemale.UseVisualStyleBackColor = True
+        '
+        'Staff_sectionLabel1
+        '
+        Staff_sectionLabel1.AutoSize = True
+        Staff_sectionLabel1.Location = New System.Drawing.Point(27, 140)
+        Staff_sectionLabel1.Name = "Staff_sectionLabel1"
+        Staff_sectionLabel1.Size = New System.Drawing.Size(59, 12)
+        Staff_sectionLabel1.TabIndex = 27
+        Staff_sectionLabel1.Text = "所属部署："
+        '
+        'Staff_sectionComboBox
+        '
+        Me.Staff_sectionComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.Tbl_staffBindingSource, "staff_section", True))
+        Me.Staff_sectionComboBox.DataSource = Me.Tbl_sectionBindingSource
+        Me.Staff_sectionComboBox.DisplayMember = "section_name"
+        Me.Staff_sectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.Staff_sectionComboBox.FormattingEnabled = True
+        Me.Staff_sectionComboBox.Location = New System.Drawing.Point(131, 137)
+        Me.Staff_sectionComboBox.Name = "Staff_sectionComboBox"
+        Me.Staff_sectionComboBox.Size = New System.Drawing.Size(94, 20)
+        Me.Staff_sectionComboBox.TabIndex = 28
+        Me.Staff_sectionComboBox.ValueMember = "section_code"
+        '
+        'Tbl_staffBindingSource
+        '
+        Me.Tbl_staffBindingSource.DataMember = "tbl_staff"
+        Me.Tbl_staffBindingSource.DataSource = Me.Project_jobDataSet
+        '
+        'Project_jobDataSet
+        '
+        Me.Project_jobDataSet.DataSetName = "project_jobDataSet"
+        Me.Project_jobDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Tbl_staffTableAdapter
+        '
+        Me.Tbl_staffTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.tbl_sectionTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_staffTableAdapter = Me.Tbl_staffTableAdapter
+        Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'Tbl_sectionBindingSource
+        '
+        Me.Tbl_sectionBindingSource.DataMember = "tbl_section"
+        Me.Tbl_sectionBindingSource.DataSource = Me.Project_jobDataSet
+        '
+        'Tbl_sectionTableAdapter
+        '
+        Me.Tbl_sectionTableAdapter.ClearBeforeFill = True
         '
         'frmStaff
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(351, 395)
-        Me.Controls.Add(Me.tdbFemale)
+        Me.ClientSize = New System.Drawing.Size(363, 399)
+        Me.Controls.Add(Staff_sectionLabel1)
+        Me.Controls.Add(Me.Staff_sectionComboBox)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Staff_codeLabel)
         Me.Controls.Add(Me.Staff_codeTextBox)
@@ -400,8 +420,6 @@ Partial Class frmStaff
         Me.Controls.Add(Me.Staff_nameTextBox)
         Me.Controls.Add(Staff_kanaLabel)
         Me.Controls.Add(Me.Staff_kanaTextBox)
-        Me.Controls.Add(Staff_sectionLabel)
-        Me.Controls.Add(Me.Staff_sectionTextBox)
         Me.Controls.Add(EmailLabel)
         Me.Controls.Add(Me.EmailTextBox)
         Me.Controls.Add(Ext_phoneLabel)
@@ -414,13 +432,14 @@ Partial Class frmStaff
         Me.Controls.Add(Me.Tbl_staffBindingNavigator)
         Me.Name = "frmStaff"
         Me.Text = "スタッフマスター管理"
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Tbl_staffBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tbl_staffBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Tbl_staffBindingNavigator.ResumeLayout(False)
         Me.Tbl_staffBindingNavigator.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.Tbl_staffBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Tbl_sectionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -446,7 +465,6 @@ Partial Class frmStaff
     Friend WithEvents Staff_codeTextBox As TextBox
     Friend WithEvents Staff_nameTextBox As TextBox
     Friend WithEvents Staff_kanaTextBox As TextBox
-    Friend WithEvents Staff_sectionTextBox As TextBox
     Friend WithEvents EmailTextBox As TextBox
     Friend WithEvents Ext_phoneTextBox As TextBox
     Friend WithEvents Resign_flagCheckBox As CheckBox
@@ -454,5 +472,8 @@ Partial Class frmStaff
     Friend WithEvents Input_dateDateTimePicker As DateTimePicker
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents rdbMale As RadioButton
-    Friend WithEvents tdbFemale As RadioButton
+    Friend WithEvents rdbFemale As RadioButton
+    Friend WithEvents Staff_sectionComboBox As ComboBox
+    Friend WithEvents Tbl_sectionBindingSource As BindingSource
+    Friend WithEvents Tbl_sectionTableAdapter As project_jobDataSetTableAdapters.tbl_sectionTableAdapter
 End Class
