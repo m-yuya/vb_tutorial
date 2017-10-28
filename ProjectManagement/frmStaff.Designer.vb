@@ -260,7 +260,7 @@ Partial Class frmStaff
         Me.Staff_codeTextBox.Location = New System.Drawing.Point(131, 46)
         Me.Staff_codeTextBox.Name = "Staff_codeTextBox"
         Me.Staff_codeTextBox.Size = New System.Drawing.Size(56, 19)
-        Me.Staff_codeTextBox.TabIndex = 2
+        Me.Staff_codeTextBox.TabIndex = 1
         '
         'Staff_nameTextBox
         '
@@ -268,7 +268,7 @@ Partial Class frmStaff
         Me.Staff_nameTextBox.Location = New System.Drawing.Point(131, 71)
         Me.Staff_nameTextBox.Name = "Staff_nameTextBox"
         Me.Staff_nameTextBox.Size = New System.Drawing.Size(141, 19)
-        Me.Staff_nameTextBox.TabIndex = 4
+        Me.Staff_nameTextBox.TabIndex = 2
         '
         'Staff_kanaTextBox
         '
@@ -276,7 +276,7 @@ Partial Class frmStaff
         Me.Staff_kanaTextBox.Location = New System.Drawing.Point(131, 96)
         Me.Staff_kanaTextBox.Name = "Staff_kanaTextBox"
         Me.Staff_kanaTextBox.Size = New System.Drawing.Size(141, 19)
-        Me.Staff_kanaTextBox.TabIndex = 6
+        Me.Staff_kanaTextBox.TabIndex = 3
         '
         'EmailTextBox
         '
@@ -284,7 +284,7 @@ Partial Class frmStaff
         Me.EmailTextBox.Location = New System.Drawing.Point(131, 171)
         Me.EmailTextBox.Name = "EmailTextBox"
         Me.EmailTextBox.Size = New System.Drawing.Size(200, 19)
-        Me.EmailTextBox.TabIndex = 12
+        Me.EmailTextBox.TabIndex = 5
         '
         'Ext_phoneTextBox
         '
@@ -292,7 +292,7 @@ Partial Class frmStaff
         Me.Ext_phoneTextBox.Location = New System.Drawing.Point(131, 196)
         Me.Ext_phoneTextBox.Name = "Ext_phoneTextBox"
         Me.Ext_phoneTextBox.Size = New System.Drawing.Size(56, 19)
-        Me.Ext_phoneTextBox.TabIndex = 14
+        Me.Ext_phoneTextBox.TabIndex = 6
         '
         'Resign_flagCheckBox
         '
@@ -300,7 +300,8 @@ Partial Class frmStaff
         Me.Resign_flagCheckBox.Location = New System.Drawing.Point(278, 355)
         Me.Resign_flagCheckBox.Name = "Resign_flagCheckBox"
         Me.Resign_flagCheckBox.Size = New System.Drawing.Size(53, 24)
-        Me.Resign_flagCheckBox.TabIndex = 16
+        Me.Resign_flagCheckBox.TabIndex = 10
+        Me.Resign_flagCheckBox.TabStop = False
         Me.Resign_flagCheckBox.Text = "退社"
         Me.Resign_flagCheckBox.UseVisualStyleBackColor = True
         '
@@ -311,7 +312,7 @@ Partial Class frmStaff
         Me.MemoTextBox.Multiline = True
         Me.MemoTextBox.Name = "MemoTextBox"
         Me.MemoTextBox.Size = New System.Drawing.Size(200, 128)
-        Me.MemoTextBox.TabIndex = 22
+        Me.MemoTextBox.TabIndex = 7
         '
         'Input_dateDateTimePicker
         '
@@ -319,7 +320,7 @@ Partial Class frmStaff
         Me.Input_dateDateTimePicker.Location = New System.Drawing.Point(131, 356)
         Me.Input_dateDateTimePicker.Name = "Input_dateDateTimePicker"
         Me.Input_dateDateTimePicker.Size = New System.Drawing.Size(124, 19)
-        Me.Input_dateDateTimePicker.TabIndex = 26
+        Me.Input_dateDateTimePicker.TabIndex = 8
         '
         'GroupBox1
         '
@@ -328,7 +329,7 @@ Partial Class frmStaff
         Me.GroupBox1.Location = New System.Drawing.Point(278, 49)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(65, 77)
-        Me.GroupBox1.TabIndex = 27
+        Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "性別"
         '
@@ -349,7 +350,7 @@ Partial Class frmStaff
         Me.rdbFemale.Location = New System.Drawing.Point(6, 41)
         Me.rdbFemale.Name = "rdbFemale"
         Me.rdbFemale.Size = New System.Drawing.Size(47, 16)
-        Me.rdbFemale.TabIndex = 1
+        Me.rdbFemale.TabIndex = 0
         Me.rdbFemale.TabStop = True
         Me.rdbFemale.Text = "女性"
         Me.rdbFemale.UseVisualStyleBackColor = True
@@ -373,7 +374,7 @@ Partial Class frmStaff
         Me.Staff_sectionComboBox.Location = New System.Drawing.Point(131, 137)
         Me.Staff_sectionComboBox.Name = "Staff_sectionComboBox"
         Me.Staff_sectionComboBox.Size = New System.Drawing.Size(94, 20)
-        Me.Staff_sectionComboBox.TabIndex = 28
+        Me.Staff_sectionComboBox.TabIndex = 4
         Me.Staff_sectionComboBox.ValueMember = "section_code"
         '
         'Tbl_staffBindingSource
