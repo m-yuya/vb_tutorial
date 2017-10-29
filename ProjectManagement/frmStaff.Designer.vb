@@ -33,7 +33,6 @@ Partial Class frmStaff
         Dim Staff_sectionLabel1 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStaff))
         Me.Tbl_staffBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.Tbl_staffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Project_jobDataSet = New ProjectManagement.project_jobDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
@@ -46,13 +45,14 @@ Partial Class frmStaff
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.Tbl_staffBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
-        Me.Staff_codeTextBox = New System.Windows.Forms.TextBox()
+        Me.txtStaffCode = New System.Windows.Forms.TextBox()
         Me.txtStaffName = New System.Windows.Forms.TextBox()
         Me.txtStaffKana = New System.Windows.Forms.TextBox()
         Me.txtEmailAddress = New System.Windows.Forms.TextBox()
         Me.txtExtPhone = New System.Windows.Forms.TextBox()
-        Me.Resign_flagCheckBox = New System.Windows.Forms.CheckBox()
+        Me.chkResignFlag = New System.Windows.Forms.CheckBox()
         Me.MemoTextBox = New System.Windows.Forms.TextBox()
         Me.Input_dateDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -170,15 +170,6 @@ Partial Class frmStaff
         Me.Tbl_staffBindingNavigator.TabIndex = 0
         Me.Tbl_staffBindingNavigator.Text = "BindingNavigator1"
         '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
         'Tbl_staffBindingSource
         '
         Me.Tbl_staffBindingSource.DataMember = "tbl_staff"
@@ -266,6 +257,15 @@ Partial Class frmStaff
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
         'Tbl_staffBindingNavigatorSaveItem
         '
         Me.Tbl_staffBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -274,14 +274,15 @@ Partial Class frmStaff
         Me.Tbl_staffBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.Tbl_staffBindingNavigatorSaveItem.Text = "Save Data"
         '
-        'Staff_codeTextBox
+        'txtStaffCode
         '
-        Me.Staff_codeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_staffBindingSource, "staff_code", True))
-        Me.Staff_codeTextBox.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.Staff_codeTextBox.Location = New System.Drawing.Point(131, 46)
-        Me.Staff_codeTextBox.Name = "Staff_codeTextBox"
-        Me.Staff_codeTextBox.Size = New System.Drawing.Size(56, 19)
-        Me.Staff_codeTextBox.TabIndex = 1
+        Me.txtStaffCode.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_staffBindingSource, "staff_code", True))
+        Me.txtStaffCode.ImeMode = System.Windows.Forms.ImeMode.Off
+        Me.txtStaffCode.Location = New System.Drawing.Point(131, 46)
+        Me.txtStaffCode.Name = "txtStaffCode"
+        Me.txtStaffCode.ReadOnly = True
+        Me.txtStaffCode.Size = New System.Drawing.Size(56, 19)
+        Me.txtStaffCode.TabIndex = 1
         '
         'txtStaffName
         '
@@ -319,16 +320,16 @@ Partial Class frmStaff
         Me.txtExtPhone.Size = New System.Drawing.Size(56, 19)
         Me.txtExtPhone.TabIndex = 6
         '
-        'Resign_flagCheckBox
+        'chkResignFlag
         '
-        Me.Resign_flagCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.Tbl_staffBindingSource, "resign_flag", True))
-        Me.Resign_flagCheckBox.Location = New System.Drawing.Point(278, 355)
-        Me.Resign_flagCheckBox.Name = "Resign_flagCheckBox"
-        Me.Resign_flagCheckBox.Size = New System.Drawing.Size(53, 24)
-        Me.Resign_flagCheckBox.TabIndex = 10
-        Me.Resign_flagCheckBox.TabStop = False
-        Me.Resign_flagCheckBox.Text = "退社"
-        Me.Resign_flagCheckBox.UseVisualStyleBackColor = True
+        Me.chkResignFlag.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.Tbl_staffBindingSource, "resign_flag", True))
+        Me.chkResignFlag.Location = New System.Drawing.Point(278, 355)
+        Me.chkResignFlag.Name = "chkResignFlag"
+        Me.chkResignFlag.Size = New System.Drawing.Size(53, 24)
+        Me.chkResignFlag.TabIndex = 10
+        Me.chkResignFlag.TabStop = False
+        Me.chkResignFlag.Text = "退社"
+        Me.chkResignFlag.UseVisualStyleBackColor = True
         '
         'MemoTextBox
         '
@@ -424,7 +425,7 @@ Partial Class frmStaff
         Me.Controls.Add(Me.cmbSection)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Staff_codeLabel)
-        Me.Controls.Add(Me.Staff_codeTextBox)
+        Me.Controls.Add(Me.txtStaffCode)
         Me.Controls.Add(Staff_nameLabel)
         Me.Controls.Add(Me.txtStaffName)
         Me.Controls.Add(Staff_kanaLabel)
@@ -433,7 +434,7 @@ Partial Class frmStaff
         Me.Controls.Add(Me.txtEmailAddress)
         Me.Controls.Add(Ext_phoneLabel)
         Me.Controls.Add(Me.txtExtPhone)
-        Me.Controls.Add(Me.Resign_flagCheckBox)
+        Me.Controls.Add(Me.chkResignFlag)
         Me.Controls.Add(MemoLabel)
         Me.Controls.Add(Me.MemoTextBox)
         Me.Controls.Add(Input_dateLabel)
@@ -471,12 +472,12 @@ Partial Class frmStaff
     Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents Tbl_staffBindingNavigatorSaveItem As ToolStripButton
-    Friend WithEvents Staff_codeTextBox As TextBox
+    Friend WithEvents txtStaffCode As TextBox
     Friend WithEvents txtStaffName As TextBox
     Friend WithEvents txtStaffKana As TextBox
     Friend WithEvents txtEmailAddress As TextBox
     Friend WithEvents txtExtPhone As TextBox
-    Friend WithEvents Resign_flagCheckBox As CheckBox
+    Friend WithEvents chkResignFlag As CheckBox
     Friend WithEvents MemoTextBox As TextBox
     Friend WithEvents Input_dateDateTimePicker As DateTimePicker
     Friend WithEvents GroupBox1 As GroupBox

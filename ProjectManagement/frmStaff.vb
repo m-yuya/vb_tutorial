@@ -225,4 +225,52 @@
             Return True
         End If
     End Function
+
+    Private Sub BindingNavigatorAddNewItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorAddNewItem.Click
+        'データの検査と編集中のデータの登録（エラーのときには処理を終了する）
+        If Not CheckEditData() Then Return
+
+        Dim staff_code As String
+
+        'スタッフコードの入力
+        Do
+            staff_code = InputBox("スタッフコードを入力してください（半角6文字）")
+            '［キャンセル］がクリックされたときには終了する（未入力も同じ）
+            If staff_code = "" Then
+                MsgBox("新規登録を中止します")
+                Return
+            End If
+
+            '半角数字6桁が入力されるまで処理を繰り返す（再入力）
+            If System.Text.RegularExpressions.Regex.IsMatch(
+            staff_code, "^[0-9]{6}$") Then
+                Exit Do
+            End If
+        Loop
+
+        '既存のスタッフコードとの重複を検査する
+        For Each drw As DataRow In Project_jobDataSet.tbl_staff.Rows()
+            '行の状態が"削除"のデータを除外する
+            If drw.RowState <> DataRowState.Deleted Then
+                'この行のスタッフコードと、入力されたスタッフコードを比較する
+                If drw("staff_code") = staff_code Then
+                    '重複の場合には終了する
+                    MsgBox("スタッフコードが既存のデータと重複しています")
+                    Return
+                End If
+            End If
+        Next
+
+        '新規行に移動する
+        Tbl_staffBindingSource.AddNew()
+
+        'スタッフコードに入力された値をセットする
+        txtStaffCode.Text = staff_code
+
+        '退社フラグの既定値をFalseにする
+        chkResignFlag.Checked = False
+
+        'スタッフ名のテキストボックスにフォーカスをセットする
+        txtStaffName.Select()
+    End Sub
 End Class
