@@ -69,7 +69,160 @@
         End Select
     End Sub
 
-    Private Sub Staff_sectionComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Staff_sectionComboBox.SelectedIndexChanged
+    Private Sub Staff_sectionComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSection.SelectedIndexChanged
 
     End Sub
+
+    Private Sub BindingNavigatorMoveFirstItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorMoveFirstItem.Click
+        'データの検査と編集中のデータの登録
+        If Not CheckEditData() Then Return
+
+        Tbl_staffBindingSource.MoveFirst()
+    End Sub
+
+    Private Sub BindingNavigatorMovePreviousItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorMovePreviousItem.Click
+        'データの検査と編集中のデータの登録
+        If Not CheckEditData() Then Return
+
+        Tbl_staffBindingSource.MovePrevious()
+    End Sub
+
+    Private Sub BindingNavigatorMoveNextItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorMoveNextItem.Click
+        'データの検査と編集中のデータの登録
+        If Not CheckEditData() Then Return
+
+        Tbl_staffBindingSource.MoveNext()
+    End Sub
+
+    Private Sub BindingNavigatorMoveLastItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorMoveLastItem.Click
+        'データの検査と編集中のデータの登録
+        If Not CheckEditData() Then Return
+
+        Tbl_staffBindingSource.MoveLast()
+    End Sub
+
+    Private Function CheckEditData() As Boolean
+        'カレント行が存在しない場合には、何もせずに戻る
+        If Tbl_staffBindingSource.Current Is Nothing Then Return True
+
+        'データの検査（スタッフ名）
+        With txtStaffName
+            '未入力のとき
+            If .Text = "" Then
+                MsgBox("スタッフ名を入力してください")
+                'テキストボックスを選択する
+                .Select()
+                Return False
+            End If
+
+            'サイズチェック
+            If Not CheckMaxLength("staff_name", .Text) Then
+                MsgBox("スタッフ名は全角10文字以内で入力してください")
+                'テキストボックスを選択する
+                .Select()
+                Return False
+            End If
+        End With
+
+        'データの検査（スタッフ名カナ）
+        With txtStaffKana
+            '未入力のとき
+            If .Text = "" Then
+                MsgBox("スタッフ名カナを入力してください")
+                'テキストボックスを選択する
+                .Select()
+                Return False
+            End If
+
+            'サイズチェック
+            If Not CheckMaxLength("staff_kana", .Text) Then
+                MsgBox("スタッフ名カナは全角10文字以内で入力してください")
+                'テキストボックスを選択する
+                .Select()
+                Return False
+            End If
+        End With
+
+        'データの検査（所属部署）
+        With cmbSection
+            '未選択のとき
+            If .Text = "" Then
+                MsgBox("所属部署を選択してください")
+                'コンボボックスを選択する
+                .Select()
+                Return False
+            End If
+        End With
+
+        'データの検査（電子メールアドレス）
+        With txtEmailAddress
+            'サイズチェック
+            If Not CheckMaxLength("email", .Text) Then
+                MsgBox("電子メールアドレスは半角50文字以内で入力してください")
+                'テキストボックスを選択する
+                .Select()
+                Return False
+            End If
+
+            '@（アットマーク）と.（ピリオド）が含まれていることを確認する（未入力は許可）
+            If .Text <> "" Then
+                If .Text.IndexOf("@") = -1 OrElse .Text.IndexOf(".") = -1 Then
+                    '@または.が含まれていないとき
+                    MsgBox("電子メールアドレスに@または.が含まれていません")
+                    'テキストボックスを選択する
+                    .Select()
+                    Return False
+                End If
+            End If
+        End With
+
+        'データの検査（内線番号）
+        With txtExtPhone
+            'サイズチェック
+            If Not CheckMaxLength("ext_phone", .Text) Then
+                MsgBox("内線番号は半角10文字以内で入力してください")
+                'テキストボックスを選択する
+                .Select()
+                Return False
+            End If
+
+            '数字のみであることを確認する（未入力は許可）
+            If Not System.Text.RegularExpressions.Regex.IsMatch(.Text, "^[0-9]*$") Then
+                '数字以外の文字が含まれているとき
+                MsgBox("内線番号に数字以外の文字が含まれています")
+                'テキストボックスを選択する
+                .Select()
+                Return False
+            End If
+        End With
+
+        Try
+            '編集中の場合があるため、変更内容を保存する
+            Tbl_staffBindingSource.EndEdit()
+        Catch ex As Exception
+            'エラーが発生した場合
+            MsgBox("データセットへの保存が失敗しました" & vbCrLf & vbCrLf & ex.Message)
+            Return False
+        End Try
+
+        'すべての検査を通過した
+        Return True
+    End Function
+
+    'サイズチェック（指定された列のサイズと文字列の比較）
+    Private Function CheckMaxLength(fieldname As String, value As String) As Boolean
+        'データセットから列の情報を読み取る
+        Dim column As DataColumn =
+            Project_jobDataSet.tbl_staff.Columns(fieldname)
+        'シフトJISで文字列のバイト数を取得する
+        Dim length As Integer =
+            System.Text.Encoding.GetEncoding(932).GetByteCount(value)
+
+        '指定されたサイズを超えたときにはエラーになる
+        If length > column.MaxLength Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
 End Class
