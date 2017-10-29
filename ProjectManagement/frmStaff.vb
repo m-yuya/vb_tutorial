@@ -3,7 +3,34 @@
         Me.Validate()
         Me.Tbl_staffBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.Project_jobDataSet)
+        'データの検査と編集中のデータの登録（エラーのときには処理を終了する）
+        If Not CheckEditData() Then Return
 
+        'データセットが更新されていないときには、以下の処理を実行しない
+        If Not Project_jobDataSet.HasChanges() Then Return
+
+        If MsgBox("これまでの修正内容をデータベースに保存しますか？ ", MsgBoxStyle.YesNo) =
+            MsgBoxResult.Yes Then
+            Try
+                '入力日を自動更新する
+                For Each drw As DataRow In Me.Project_jobDataSet.tbl_staff.Rows()
+                    'データが修正または追加されている場合には、入力日にシステム日をセットする
+                    If drw.RowState = DataRowState.Modified Or
+                    drw.RowState = DataRowState.Added Then
+                        drw("input_date") = Today()
+                    End If
+                Next
+
+                'データセットのtbl_staffテーブルを更新する
+                Tbl_staffTableAdapter.Update(Project_jobDataSet.tbl_staff)
+
+                MsgBox("データベースに登録しました")
+
+            Catch ex As Exception
+                'エラーが発生した場合
+                MsgBox("更新が失敗しました" & vbCrLf & vbCrLf & ex.Message)
+            End Try
+        End If
     End Sub
 
     Private Sub frmStaff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
