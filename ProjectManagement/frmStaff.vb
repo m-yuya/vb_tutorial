@@ -300,4 +300,14 @@
         'スタッフ名のテキストボックスにフォーカスをセットする
         txtStaffName.Select()
     End Sub
+
+    Private Sub frmStaff_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        'フォームを閉じてよいかどうかを確認する
+        If MsgBox("保存処理を実行していない場合には、作業内容がクリアされてしまいます。" &
+                  vbCrLf & vbCrLf & "このままフォームを閉じてもよろしいですか？ ",
+                  MsgBoxStyle.YesNo Or MsgBoxStyle.DefaultButton2) = MsgBoxResult.No Then
+            'イベントをキャンセルする
+            e.Cancel = True
+        End If
+    End Sub
 End Class
