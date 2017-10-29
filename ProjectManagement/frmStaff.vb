@@ -1,8 +1,5 @@
 ﻿Public Class frmStaff
     Private Sub Tbl_staffBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles Tbl_staffBindingNavigatorSaveItem.Click
-        Me.Validate()
-        Me.Tbl_staffBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.Project_jobDataSet)
         'データの検査と編集中のデータの登録（エラーのときには処理を終了する）
         If Not CheckEditData() Then Return
 
