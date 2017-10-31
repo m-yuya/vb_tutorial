@@ -29,17 +29,17 @@ Partial Class frmCustomer
         Me.Tbl_customerTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_customerTableAdapter()
         Me.TableAdapterManager = New ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager()
         Me.Tbl_customerBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.Tbl_customerBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.Tbl_customerDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -50,11 +50,16 @@ Partial Class frmCustomer
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FillByNameToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.FilternameToolStripLabel = New System.Windows.Forms.ToolStripLabel()
+        Me.FilternameToolStripTextBox = New System.Windows.Forms.ToolStripTextBox()
+        Me.FillByNameToolStripButton = New System.Windows.Forms.ToolStripButton()
         CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_customerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_customerBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tbl_customerBindingNavigator.SuspendLayout()
         CType(Me.Tbl_customerDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FillByNameToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'Project_jobDataSet
@@ -93,9 +98,34 @@ Partial Class frmCustomer
         Me.Tbl_customerBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.Tbl_customerBindingNavigator.Name = "Tbl_customerBindingNavigator"
         Me.Tbl_customerBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.Tbl_customerBindingNavigator.Size = New System.Drawing.Size(704, 25)
+        Me.Tbl_customerBindingNavigator.Size = New System.Drawing.Size(724, 25)
         Me.Tbl_customerBindingNavigator.TabIndex = 0
         Me.Tbl_customerBindingNavigator.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Delete"
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -129,17 +159,10 @@ Partial Class frmCustomer
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 15)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 6)
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -147,7 +170,7 @@ Partial Class frmCustomer
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
@@ -156,38 +179,20 @@ Partial Class frmCustomer
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 6)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 20)
-        Me.BindingNavigatorDeleteItem.Text = "Delete"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
         'Tbl_customerBindingNavigatorSaveItem
         '
         Me.Tbl_customerBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.Tbl_customerBindingNavigatorSaveItem.Image = CType(resources.GetObject("Tbl_customerBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.Tbl_customerBindingNavigatorSaveItem.Name = "Tbl_customerBindingNavigatorSaveItem"
-        Me.Tbl_customerBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 23)
+        Me.Tbl_customerBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.Tbl_customerBindingNavigatorSaveItem.Text = "Save Data"
         '
         'Tbl_customerDataGridView
@@ -200,10 +205,10 @@ Partial Class frmCustomer
         Me.Tbl_customerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Tbl_customerDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8})
         Me.Tbl_customerDataGridView.DataSource = Me.Tbl_customerBindingSource
-        Me.Tbl_customerDataGridView.Location = New System.Drawing.Point(0, 28)
+        Me.Tbl_customerDataGridView.Location = New System.Drawing.Point(0, 51)
         Me.Tbl_customerDataGridView.Name = "Tbl_customerDataGridView"
         Me.Tbl_customerDataGridView.RowTemplate.Height = 21
-        Me.Tbl_customerDataGridView.Size = New System.Drawing.Size(704, 434)
+        Me.Tbl_customerDataGridView.Size = New System.Drawing.Size(724, 432)
         Me.Tbl_customerDataGridView.TabIndex = 1
         '
         'DataGridViewTextBoxColumn1
@@ -261,11 +266,40 @@ Partial Class frmCustomer
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.Width = 80
         '
+        'FillByNameToolStrip
+        '
+        Me.FillByNameToolStrip.ImeMode = System.Windows.Forms.ImeMode.Hiragana
+        Me.FillByNameToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FilternameToolStripLabel, Me.FilternameToolStripTextBox, Me.FillByNameToolStripButton})
+        Me.FillByNameToolStrip.Location = New System.Drawing.Point(0, 25)
+        Me.FillByNameToolStrip.Name = "FillByNameToolStrip"
+        Me.FillByNameToolStrip.Size = New System.Drawing.Size(724, 25)
+        Me.FillByNameToolStrip.TabIndex = 2
+        Me.FillByNameToolStrip.Text = "FillByNameToolStrip"
+        '
+        'FilternameToolStripLabel
+        '
+        Me.FilternameToolStripLabel.Name = "FilternameToolStripLabel"
+        Me.FilternameToolStripLabel.Size = New System.Drawing.Size(46, 22)
+        Me.FilternameToolStripLabel.Text = "顧客名:"
+        '
+        'FilternameToolStripTextBox
+        '
+        Me.FilternameToolStripTextBox.Name = "FilternameToolStripTextBox"
+        Me.FilternameToolStripTextBox.Size = New System.Drawing.Size(100, 25)
+        '
+        'FillByNameToolStripButton
+        '
+        Me.FillByNameToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.FillByNameToolStripButton.Name = "FillByNameToolStripButton"
+        Me.FillByNameToolStripButton.Size = New System.Drawing.Size(77, 22)
+        Me.FillByNameToolStripButton.Text = "フィルター実行"
+        '
         'frmCustomer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(704, 461)
+        Me.ClientSize = New System.Drawing.Size(724, 482)
+        Me.Controls.Add(Me.FillByNameToolStrip)
         Me.Controls.Add(Me.Tbl_customerDataGridView)
         Me.Controls.Add(Me.Tbl_customerBindingNavigator)
         Me.Name = "frmCustomer"
@@ -276,6 +310,8 @@ Partial Class frmCustomer
         Me.Tbl_customerBindingNavigator.ResumeLayout(False)
         Me.Tbl_customerBindingNavigator.PerformLayout()
         CType(Me.Tbl_customerDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FillByNameToolStrip.ResumeLayout(False)
+        Me.FillByNameToolStrip.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -307,4 +343,8 @@ Partial Class frmCustomer
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents FillByNameToolStrip As ToolStrip
+    Friend WithEvents FilternameToolStripLabel As ToolStripLabel
+    Friend WithEvents FilternameToolStripTextBox As ToolStripTextBox
+    Friend WithEvents FillByNameToolStripButton As ToolStripButton
 End Class

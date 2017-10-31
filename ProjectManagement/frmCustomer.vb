@@ -11,4 +11,13 @@
         Me.Tbl_customerTableAdapter.Fill(Me.Project_jobDataSet.tbl_customer)
 
     End Sub
+
+    Private Sub FillByNameToolStripButton_Click(sender As Object, e As EventArgs) Handles FillByNameToolStripButton.Click
+        Try
+            Me.Tbl_customerTableAdapter.FillByName(Me.Project_jobDataSet.tbl_customer, "%" & FilternameToolStripTextBox.Text & "%")
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
 End Class
