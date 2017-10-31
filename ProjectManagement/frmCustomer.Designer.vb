@@ -86,7 +86,7 @@ Partial Class frmCustomer
         '
         'Tbl_customerBindingNavigator
         '
-        Me.Tbl_customerBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
+        Me.Tbl_customerBindingNavigator.AddNewItem = Nothing
         Me.Tbl_customerBindingNavigator.BindingSource = Me.Tbl_customerBindingSource
         Me.Tbl_customerBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.Tbl_customerBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem

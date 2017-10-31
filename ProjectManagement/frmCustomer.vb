@@ -20,4 +20,26 @@
         End Try
 
     End Sub
+
+    Private Sub Tbl_customerDataGridView_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles Tbl_customerDataGridView.DataError
+        MsgBox("データの登録時にエラーが発生しました。" & vbCrLf & vbCrLf & e.Exception.Message)
+    End Sub
+
+    Private Sub BindingNavigatorAddNewItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorAddNewItem.Click
+        Try
+            With Tbl_customerDataGridView
+                'データグリッドビューのセルの選択を解除する
+                .ClearSelection()
+                'データグリッドビューの最終行の先頭列に移動する
+                .CurrentCell = .Rows(.NewRowIndex).Cells(0)
+                '編集モードに遷移する
+                .BeginEdit(False)
+            End With
+
+        Catch ex As Exception
+            '例外時のエラーメッセージ
+            MsgBox(ex.Message)
+            Return
+        End Try
+    End Sub
 End Class
