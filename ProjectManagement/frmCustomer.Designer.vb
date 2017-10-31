@@ -192,6 +192,10 @@ Partial Class frmCustomer
         '
         'Tbl_customerDataGridView
         '
+        Me.Tbl_customerDataGridView.AllowUserToOrderColumns = True
+        Me.Tbl_customerDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Tbl_customerDataGridView.AutoGenerateColumns = False
         Me.Tbl_customerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Tbl_customerDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8})
@@ -205,50 +209,57 @@ Partial Class frmCustomer
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "customer_code"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "customer_code"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "顧客コード"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.Width = 85
         '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "customer_name"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "customer_name"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "顧客名"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.Width = 180
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "zipcode"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "zipcode"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "郵便番号"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.Width = 80
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "address"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "address"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "住所"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Width = 200
         '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "person"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "person"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "担当者"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.Width = 80
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "tel"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "tel"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "電話番号"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         '
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "rank"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "rank"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "ランク"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.Width = 60
         '
         'DataGridViewTextBoxColumn8
         '
         Me.DataGridViewTextBoxColumn8.DataPropertyName = "input_date"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "input_date"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "入力日"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.Width = 80
         '
         'frmCustomer
         '
