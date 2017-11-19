@@ -27,12 +27,12 @@ Namespace My
             Me.IsSingleInstance = false
             Me.EnableVisualStyles = true
             Me.SaveMySettingsOnExit = true
-            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
+            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterAllFormsClose
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.ProjectManagement.frmStaff
+            Me.MainForm = Global.ProjectManagement.frmLogon
         End Sub
     End Class
 End Namespace
