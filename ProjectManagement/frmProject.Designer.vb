@@ -67,11 +67,11 @@ Partial Class frmProject
         Me.Tbl_jobBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tbl_jobTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_jobTableAdapter()
         Me.Tbl_jobDataGridView = New System.Windows.Forms.DataGridView()
-        Me.TblstaffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.staff_code = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.TblstaffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -465,11 +465,6 @@ Partial Class frmProject
         Me.Tbl_jobDataGridView.Size = New System.Drawing.Size(579, 220)
         Me.Tbl_jobDataGridView.TabIndex = 5
         '
-        'TblstaffBindingSource
-        '
-        Me.TblstaffBindingSource.DataMember = "tbl_staff"
-        Me.TblstaffBindingSource.DataSource = Me.Project_jobDataSet
-        '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "job_number"
@@ -507,6 +502,11 @@ Partial Class frmProject
         Me.staff_code.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.staff_code.ValueMember = "staff_code"
         Me.staff_code.Width = 80
+        '
+        'TblstaffBindingSource
+        '
+        Me.TblstaffBindingSource.DataMember = "tbl_staff"
+        Me.TblstaffBindingSource.DataSource = Me.Project_jobDataSet
         '
         'DataGridViewTextBoxColumn5
         '
