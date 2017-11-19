@@ -53,6 +53,69 @@ Partial Class frmProjectNew
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
+        'Project_codeLabel
+        '
+        Project_codeLabel.AutoSize = True
+        Project_codeLabel.Location = New System.Drawing.Point(16, 35)
+        Project_codeLabel.Name = "Project_codeLabel"
+        Project_codeLabel.Size = New System.Drawing.Size(89, 12)
+        Project_codeLabel.TabIndex = 0
+        Project_codeLabel.Text = "プロジェクトコード："
+        '
+        'Project_nameLabel
+        '
+        Project_nameLabel.AutoSize = True
+        Project_nameLabel.Location = New System.Drawing.Point(16, 60)
+        Project_nameLabel.Name = "Project_nameLabel"
+        Project_nameLabel.Size = New System.Drawing.Size(74, 12)
+        Project_nameLabel.TabIndex = 2
+        Project_nameLabel.Text = "プロジェクト名："
+        '
+        'Customer_codeLabel
+        '
+        Customer_codeLabel.AutoSize = True
+        Customer_codeLabel.Location = New System.Drawing.Point(16, 85)
+        Customer_codeLabel.Name = "Customer_codeLabel"
+        Customer_codeLabel.Size = New System.Drawing.Size(35, 12)
+        Customer_codeLabel.TabIndex = 4
+        Customer_codeLabel.Text = "顧客："
+        '
+        'Staff_codeLabel
+        '
+        Staff_codeLabel.AutoSize = True
+        Staff_codeLabel.Location = New System.Drawing.Point(16, 111)
+        Staff_codeLabel.Name = "Staff_codeLabel"
+        Staff_codeLabel.Size = New System.Drawing.Size(68, 12)
+        Staff_codeLabel.TabIndex = 6
+        Staff_codeLabel.Text = "マネージャー："
+        '
+        'Start_dateLabel
+        '
+        Start_dateLabel.AutoSize = True
+        Start_dateLabel.Location = New System.Drawing.Point(16, 138)
+        Start_dateLabel.Name = "Start_dateLabel"
+        Start_dateLabel.Size = New System.Drawing.Size(47, 12)
+        Start_dateLabel.TabIndex = 8
+        Start_dateLabel.Text = "開始日："
+        '
+        'End_dateLabel
+        '
+        End_dateLabel.AutoSize = True
+        End_dateLabel.Location = New System.Drawing.Point(16, 163)
+        End_dateLabel.Name = "End_dateLabel"
+        End_dateLabel.Size = New System.Drawing.Size(47, 12)
+        End_dateLabel.TabIndex = 10
+        End_dateLabel.Text = "終了日："
+        '
+        'MemoLabel
+        '
+        MemoLabel.AutoSize = True
+        MemoLabel.Location = New System.Drawing.Point(16, 187)
+        MemoLabel.Name = "MemoLabel"
+        MemoLabel.Size = New System.Drawing.Size(28, 12)
+        MemoLabel.TabIndex = 12
+        MemoLabel.Text = "メモ："
+        '
         'Project_jobDataSet1
         '
         Me.Project_jobDataSet1.DataSetName = "project_jobDataSet"
@@ -85,30 +148,12 @@ Partial Class frmProjectNew
         Me.Panel1.Size = New System.Drawing.Size(579, 284)
         Me.Panel1.TabIndex = 1
         '
-        'Project_codeLabel
-        '
-        Project_codeLabel.AutoSize = True
-        Project_codeLabel.Location = New System.Drawing.Point(16, 35)
-        Project_codeLabel.Name = "Project_codeLabel"
-        Project_codeLabel.Size = New System.Drawing.Size(89, 12)
-        Project_codeLabel.TabIndex = 0
-        Project_codeLabel.Text = "プロジェクトコード："
-        '
         'txtProjectCode
         '
         Me.txtProjectCode.Location = New System.Drawing.Point(113, 31)
         Me.txtProjectCode.Name = "txtProjectCode"
         Me.txtProjectCode.Size = New System.Drawing.Size(103, 19)
         Me.txtProjectCode.TabIndex = 1
-        '
-        'Project_nameLabel
-        '
-        Project_nameLabel.AutoSize = True
-        Project_nameLabel.Location = New System.Drawing.Point(16, 60)
-        Project_nameLabel.Name = "Project_nameLabel"
-        Project_nameLabel.Size = New System.Drawing.Size(74, 12)
-        Project_nameLabel.TabIndex = 2
-        Project_nameLabel.Text = "プロジェクト名："
         '
         'txtProjectName
         '
@@ -117,15 +162,6 @@ Partial Class frmProjectNew
         Me.txtProjectName.Name = "txtProjectName"
         Me.txtProjectName.Size = New System.Drawing.Size(320, 19)
         Me.txtProjectName.TabIndex = 3
-        '
-        'Customer_codeLabel
-        '
-        Customer_codeLabel.AutoSize = True
-        Customer_codeLabel.Location = New System.Drawing.Point(16, 85)
-        Customer_codeLabel.Name = "Customer_codeLabel"
-        Customer_codeLabel.Size = New System.Drawing.Size(35, 12)
-        Customer_codeLabel.TabIndex = 4
-        Customer_codeLabel.Text = "顧客："
         '
         'cmbCustomer
         '
@@ -138,15 +174,6 @@ Partial Class frmProjectNew
         Me.cmbCustomer.TabIndex = 5
         Me.cmbCustomer.ValueMember = "customer_code"
         '
-        'Staff_codeLabel
-        '
-        Staff_codeLabel.AutoSize = True
-        Staff_codeLabel.Location = New System.Drawing.Point(16, 111)
-        Staff_codeLabel.Name = "Staff_codeLabel"
-        Staff_codeLabel.Size = New System.Drawing.Size(68, 12)
-        Staff_codeLabel.TabIndex = 6
-        Staff_codeLabel.Text = "マネージャー："
-        '
         'cmbManager
         '
         Me.cmbManager.DisplayMember = "staff_name"
@@ -158,15 +185,6 @@ Partial Class frmProjectNew
         Me.cmbManager.TabIndex = 7
         Me.cmbManager.ValueMember = "staff_code"
         '
-        'Start_dateLabel
-        '
-        Start_dateLabel.AutoSize = True
-        Start_dateLabel.Location = New System.Drawing.Point(16, 138)
-        Start_dateLabel.Name = "Start_dateLabel"
-        Start_dateLabel.Size = New System.Drawing.Size(47, 12)
-        Start_dateLabel.TabIndex = 8
-        Start_dateLabel.Text = "開始日："
-        '
         'dtpStartDate
         '
         Me.dtpStartDate.Location = New System.Drawing.Point(113, 133)
@@ -174,30 +192,12 @@ Partial Class frmProjectNew
         Me.dtpStartDate.Size = New System.Drawing.Size(200, 19)
         Me.dtpStartDate.TabIndex = 9
         '
-        'End_dateLabel
-        '
-        End_dateLabel.AutoSize = True
-        End_dateLabel.Location = New System.Drawing.Point(16, 163)
-        End_dateLabel.Name = "End_dateLabel"
-        End_dateLabel.Size = New System.Drawing.Size(47, 12)
-        End_dateLabel.TabIndex = 10
-        End_dateLabel.Text = "終了日："
-        '
         'dtpEndDate
         '
         Me.dtpEndDate.Location = New System.Drawing.Point(113, 158)
         Me.dtpEndDate.Name = "dtpEndDate"
         Me.dtpEndDate.Size = New System.Drawing.Size(200, 19)
         Me.dtpEndDate.TabIndex = 11
-        '
-        'MemoLabel
-        '
-        MemoLabel.AutoSize = True
-        MemoLabel.Location = New System.Drawing.Point(16, 187)
-        MemoLabel.Name = "MemoLabel"
-        MemoLabel.Size = New System.Drawing.Size(28, 12)
-        MemoLabel.TabIndex = 12
-        MemoLabel.Text = "メモ："
         '
         'txtMemo
         '
