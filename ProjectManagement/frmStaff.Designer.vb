@@ -63,6 +63,18 @@ Partial Class frmStaff
         Me.Tbl_staffTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_staffTableAdapter()
         Me.TableAdapterManager = New ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager()
         Me.Tbl_sectionTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_sectionTableAdapter()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.データDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuMoveFirst = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuMovePrev = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuMoveNext = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuMoveLast = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.MnuNew = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuDelete = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuSave = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuMenu = New System.Windows.Forms.ToolStripMenuItem()
         Staff_codeLabel = New System.Windows.Forms.Label()
         Staff_nameLabel = New System.Windows.Forms.Label()
         Staff_kanaLabel = New System.Windows.Forms.Label()
@@ -77,6 +89,7 @@ Partial Class frmStaff
         CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.Tbl_sectionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Staff_codeLabel
@@ -158,8 +171,9 @@ Partial Class frmStaff
         Me.Tbl_staffBindingNavigator.BindingSource = Me.Tbl_staffBindingSource
         Me.Tbl_staffBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.Tbl_staffBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
+        Me.Tbl_staffBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Tbl_staffBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.Tbl_staffBindingNavigatorSaveItem})
-        Me.Tbl_staffBindingNavigator.Location = New System.Drawing.Point(0, 0)
+        Me.Tbl_staffBindingNavigator.Location = New System.Drawing.Point(0, 424)
         Me.Tbl_staffBindingNavigator.MoveFirstItem = Nothing
         Me.Tbl_staffBindingNavigator.MoveLastItem = Nothing
         Me.Tbl_staffBindingNavigator.MoveNextItem = Nothing
@@ -408,6 +422,9 @@ Partial Class frmStaff
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.tbl_customerTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_jobTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_projectTableAdapter = Nothing
         Me.TableAdapterManager.tbl_sectionTableAdapter = Nothing
         Me.TableAdapterManager.tbl_staffTableAdapter = Me.Tbl_staffTableAdapter
         Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -416,11 +433,93 @@ Partial Class frmStaff
         '
         Me.Tbl_sectionTableAdapter.ClearBeforeFill = True
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.データDToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(363, 24)
+        Me.MenuStrip1.TabIndex = 28
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'データDToolStripMenuItem
+        '
+        Me.データDToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuMoveFirst, Me.mnuMovePrev, Me.mnuMoveNext, Me.mnuMoveLast, Me.ToolStripSeparator1, Me.MnuNew, Me.mnuDelete, Me.mnuSave, Me.ToolStripSeparator2, Me.mnuMenu})
+        Me.データDToolStripMenuItem.Name = "データDToolStripMenuItem"
+        Me.データDToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.データDToolStripMenuItem.Text = "データ(&D)"
+        '
+        'mnuMoveFirst
+        '
+        Me.mnuMoveFirst.Name = "mnuMoveFirst"
+        Me.mnuMoveFirst.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Q), System.Windows.Forms.Keys)
+        Me.mnuMoveFirst.Size = New System.Drawing.Size(200, 22)
+        Me.mnuMoveFirst.Text = "最初に移動(&F)"
+        '
+        'mnuMovePrev
+        '
+        Me.mnuMovePrev.Name = "mnuMovePrev"
+        Me.mnuMovePrev.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
+        Me.mnuMovePrev.Size = New System.Drawing.Size(200, 22)
+        Me.mnuMovePrev.Text = "前に戻る(&P)"
+        '
+        'mnuMoveNext
+        '
+        Me.mnuMoveNext.Name = "mnuMoveNext"
+        Me.mnuMoveNext.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.T), System.Windows.Forms.Keys)
+        Me.mnuMoveNext.Size = New System.Drawing.Size(200, 22)
+        Me.mnuMoveNext.Text = "次に移動(&N)"
+        '
+        'mnuMoveLast
+        '
+        Me.mnuMoveLast.Name = "mnuMoveLast"
+        Me.mnuMoveLast.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Y), System.Windows.Forms.Keys)
+        Me.mnuMoveLast.Size = New System.Drawing.Size(200, 22)
+        Me.mnuMoveLast.Text = "最後に移動(&L)"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(197, 6)
+        '
+        'MnuNew
+        '
+        Me.MnuNew.Name = "MnuNew"
+        Me.MnuNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
+        Me.MnuNew.Size = New System.Drawing.Size(200, 22)
+        Me.MnuNew.Text = "新規追加(&A)"
+        '
+        'mnuDelete
+        '
+        Me.mnuDelete.Name = "mnuDelete"
+        Me.mnuDelete.ShortcutKeys = CType((System.Windows.Forms.Keys.Shift Or System.Windows.Forms.Keys.Delete), System.Windows.Forms.Keys)
+        Me.mnuDelete.Size = New System.Drawing.Size(200, 22)
+        Me.mnuDelete.Text = "削除(&D)"
+        '
+        'mnuSave
+        '
+        Me.mnuSave.Name = "mnuSave"
+        Me.mnuSave.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.mnuSave.Size = New System.Drawing.Size(200, 22)
+        Me.mnuSave.Text = "データの保存(&U)"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(197, 6)
+        '
+        'mnuMenu
+        '
+        Me.mnuMenu.Name = "mnuMenu"
+        Me.mnuMenu.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.M), System.Windows.Forms.Keys)
+        Me.mnuMenu.Size = New System.Drawing.Size(200, 22)
+        Me.mnuMenu.Text = "メニューに戻る(&M)"
+        '
         'frmStaff
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(363, 399)
+        Me.ClientSize = New System.Drawing.Size(363, 449)
         Me.Controls.Add(Staff_sectionLabel1)
         Me.Controls.Add(Me.cmbSection)
         Me.Controls.Add(Me.GroupBox1)
@@ -440,6 +539,8 @@ Partial Class frmStaff
         Me.Controls.Add(Input_dateLabel)
         Me.Controls.Add(Me.Input_dateDateTimePicker)
         Me.Controls.Add(Me.Tbl_staffBindingNavigator)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmStaff"
         Me.Text = "スタッフマスター管理"
         CType(Me.Tbl_staffBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
@@ -450,6 +551,8 @@ Partial Class frmStaff
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.Tbl_sectionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -486,4 +589,16 @@ Partial Class frmStaff
     Friend WithEvents cmbSection As ComboBox
     Friend WithEvents Tbl_sectionBindingSource As BindingSource
     Friend WithEvents Tbl_sectionTableAdapter As project_jobDataSetTableAdapters.tbl_sectionTableAdapter
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents データDToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuMoveFirst As ToolStripMenuItem
+    Friend WithEvents mnuMovePrev As ToolStripMenuItem
+    Friend WithEvents mnuMoveNext As ToolStripMenuItem
+    Friend WithEvents mnuMoveLast As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents MnuNew As ToolStripMenuItem
+    Friend WithEvents mnuDelete As ToolStripMenuItem
+    Friend WithEvents mnuSave As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents mnuMenu As ToolStripMenuItem
 End Class

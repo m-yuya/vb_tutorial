@@ -307,4 +307,44 @@
             e.Cancel = True
         End If
     End Sub
+
+    Private Sub mnuMoveFirst_Click(sender As Object, e As EventArgs) Handles mnuMoveFirst.Click
+        '［データ］メニューの［最初に移動］コマンド
+        BindingNavigatorMoveFirstItem.PerformClick()
+    End Sub
+
+    Private Sub mnuMovePrev_Click(sender As Object, e As EventArgs) Handles mnuMovePrev.Click
+        '［データ］メニューの［前に戻る］コマンド
+        BindingNavigatorMovePreviousItem.PerformClick()
+    End Sub
+
+    Private Sub mnuMoveNext_Click(sender As Object, e As EventArgs) Handles mnuMoveNext.Click
+        '［データ］メニューの［次に移動］コマンド
+        BindingNavigatorMoveNextItem.PerformClick()
+    End Sub
+
+    Private Sub mnuMoveLast_Click(sender As Object, e As EventArgs) Handles mnuMoveLast.Click
+        '［データ］メニューの［最後に移動］コマンド
+        BindingNavigatorMoveLastItem.PerformClick()
+    End Sub
+
+    Private Sub MnuNew_Click(sender As Object, e As EventArgs) Handles MnuNew.Click
+        '［データ］メニューの［新規追加］コマンド
+        BindingNavigatorAddNewItem.PerformClick()
+    End Sub
+
+    Private Sub mnuDelete_Click(sender As Object, e As EventArgs) Handles mnuDelete.Click
+        '［データ］メニューの［削除］コマンド
+        BindingNavigatorDeleteItem.PerformClick()
+    End Sub
+
+    Private Sub mnuSave_Click(sender As Object, e As EventArgs) Handles mnuSave.Click
+        '［データ］メニューの［データの保存］コマンド
+        Tbl_staffBindingNavigatorSaveItem.PerformClick()
+    End Sub
+
+    Private Sub mnuMenu_Click(sender As Object, e As EventArgs) Handles mnuMenu.Click
+        '［データ］メニューの［メニューに戻る］コマンド
+        Me.Close()
+    End Sub
 End Class
