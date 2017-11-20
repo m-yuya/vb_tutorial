@@ -83,6 +83,12 @@
     <Compile Include="frmLogon.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMenu.Designer.vb">
+      <DependentUpon>frmMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmProject.Designer.vb">
       <DependentUpon>frmProject.vb</DependentUpon>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogon.resx">
       <DependentUpon>frmLogon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProject.resx">
       <DependentUpon>frmProject.vb</DependentUpon>
