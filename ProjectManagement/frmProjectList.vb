@@ -1,4 +1,12 @@
 ﻿Public Class frmProjectList
+
+    Class CustomerItem
+        Public CustomerName As String '顧客名
+        Public CustomerCode As String '顧客コード
+        Public Rank As String 'ランク
+    End Class
+
+    Private m_Customers As New List(Of CustomerItem)
     Private Sub frmProjectList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'Project_jobDataSet.vw_projectlist' table. You can move, or remove it, as needed.
         Me.Vw_projectlistTableAdapter.Fill(Me.Project_jobDataSet.vw_projectlist)
@@ -32,18 +40,21 @@
             'データリーダーを閉じる
             dr.Close()
 
-            '### 顧客のコンボボックスの設定　###
-            '先頭に（すべて）を追加する
-            cmbCustomer.Items.Add("（すべて）")
-
+            '### 顧客のコンボボックスの設定###
             'データコマンドの定義
-            command.CommandText = "SELECT customer_code, customer_name FROM tbl_customer ORDER BY customer_code"
+            command.CommandText = "SELECT customer_code, customer_name, rank FROM tbl_customer ORDER BY customer_code"
 
             'データリーダーからのデータの読み出し
             dr = command.ExecuteReader()
             Do While dr.Read
-                '読み出したデータをコンボボックスに追加する
-                cmbCustomer.Items.Add(dr("customer_code") & ":" & dr("customer_name"))
+                'CustomerItemクラスに読み出したデータをセットする
+                Dim item As New CustomerItem
+                item.CustomerCode = dr("customer_code")
+                item.CustomerName = dr("customer_name")
+                item.Rank = dr("rank").ToString
+
+                'm_CustomersコレクションにCustomerItemクラスを追加する
+                m_Customers.Add(item)
             Loop
 
             'データリーダーを閉じる
@@ -55,6 +66,10 @@
             '2つのコンボボックスで既定の状態として、先頭の（すべて）を選択する
             cmbManager.SelectedIndex = 0
             cmbCustomer.SelectedIndex = 0
+
+            '［ランク］コンボボックスの既定値として［全］を選択する
+            'この処理でイベントが発生し、［顧客］コンボボックスの一覧が生成される
+            cmbRank.SelectedIndex = 0
         End Using
 
         '指定された条件でデータベースを読み込む
@@ -162,5 +177,72 @@
 
         '［プロジェクト管理］フォームから戻ってきたら、このフォームを更新する
         LoadDatabase()
+    End Sub
+
+    Private Sub cmbRank_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbRank.SelectedIndexChanged
+        '［顧客］コンボボックスの一覧を作り直す
+        SetCustomerCombobox()
+    End Sub
+
+    Private Sub rdbOrderCode_CheckedChanged(sender As Object, e As EventArgs) Handles rdbOrderCode.CheckedChanged
+        '［顧客］コンボボックスの一覧を作り直す
+        SetCustomerCombobox()
+    End Sub
+
+    Private Sub rdbOrderName_CheckedChanged(sender As Object, e As EventArgs) Handles rdbOrderName.CheckedChanged
+        '［顧客］コンボボックスの一覧を作り直す
+        SetCustomerCombobox()
+    End Sub
+
+    '［顧客］コンボボックスの一覧の生成
+    Private Sub SetCustomerCombobox()
+        '待機カーソル（砂時計）を表示する
+        Me.Cursor = Cursors.WaitCursor
+
+        'コンボボックスの項目をクリアする
+        cmbCustomer.Items.Clear()
+        '先頭に（すべて）を追加する
+        cmbCustomer.Items.Add("（すべて）")
+
+        '選択したランクを取得する
+        Dim rank As Integer = cmbRank.SelectedIndex
+
+        '顧客データの配列を宣言する
+        Dim customerarray() As CustomerItem = Nothing
+
+        '条件によって、顧客データの配列を生成する
+        If rank = 0 Then
+            'ランクが「全」の場合
+            If rdbOrderCode.Checked Then
+                'コード順が選択されているとき（Where句なし）
+                customerarray = (From a In m_Customers Order By a.CustomerCode).ToArray
+            ElseIf rdbOrderName.Checked Then
+                '名前順が選択されているとき（Where句なし）
+                customerarray = (From a In m_Customers Order By a.CustomerName).ToArray
+            End If
+        Else
+            'ランクが「A」～「C」の場合
+            If rdbOrderCode.Checked Then
+                'コード順が選択されているとき（ランクによるWhere句あり）
+                customerarray = (From a In m_Customers
+                                 Where a.Rank = cmbRank.SelectedItem
+                                 Order By a.CustomerCode).ToArray
+            ElseIf rdbOrderName.Checked Then
+                '名前順が選択されているとき（ランクによるWhere句あり）
+                customerarray = (From a In m_Customers
+                                 Where a.Rank = cmbRank.SelectedItem
+                                 Order By a.CustomerName).ToArray
+            End If
+        End If
+        '配列からデータを取得して、コンボボックスに追加する
+        For Each c In customerarray
+            cmbCustomer.Items.Add(c.CustomerCode & ":" & c.CustomerName)
+        Next
+
+        '先頭の（すべて）を選択する
+        cmbCustomer.SelectedIndex = 0
+
+        '待機カーソル（砂時計）を戻す
+        Me.Cursor = Cursors.Default
     End Sub
 End Class

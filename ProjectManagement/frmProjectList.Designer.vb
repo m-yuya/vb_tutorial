@@ -60,6 +60,10 @@ Partial Class frmProjectList
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnNew = New System.Windows.Forms.Button()
         Me.btnCard = New System.Windows.Forms.Button()
+        Me.cmbRank = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.rdbOrderCode = New System.Windows.Forms.RadioButton()
+        Me.rdbOrderName = New System.Windows.Forms.RadioButton()
         CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_projectlistBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_projectlistBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,6 +90,8 @@ Partial Class frmProjectList
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.tbl_customerTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_jobTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_projectTableAdapter = Nothing
         Me.TableAdapterManager.tbl_sectionTableAdapter = Nothing
         Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -211,11 +217,11 @@ Partial Class frmProjectList
         Me.grdProjectList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdProjectList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewCheckBoxColumn1})
         Me.grdProjectList.DataSource = Me.Vw_projectlistBindingSource
-        Me.grdProjectList.Location = New System.Drawing.Point(12, 51)
+        Me.grdProjectList.Location = New System.Drawing.Point(12, 78)
         Me.grdProjectList.Name = "grdProjectList"
         Me.grdProjectList.ReadOnly = True
         Me.grdProjectList.RowTemplate.Height = 21
-        Me.grdProjectList.Size = New System.Drawing.Size(680, 378)
+        Me.grdProjectList.Size = New System.Drawing.Size(680, 351)
         Me.grdProjectList.TabIndex = 1
         '
         'DataGridViewTextBoxColumn1
@@ -295,7 +301,7 @@ Partial Class frmProjectList
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(276, 28)
+        Me.Label3.Location = New System.Drawing.Point(13, 55)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(68, 12)
         Me.Label3.TabIndex = 4
@@ -314,16 +320,16 @@ Partial Class frmProjectList
         Me.cmbCustomer.FormattingEnabled = True
         Me.cmbCustomer.Location = New System.Drawing.Point(87, 25)
         Me.cmbCustomer.Name = "cmbCustomer"
-        Me.cmbCustomer.Size = New System.Drawing.Size(166, 20)
+        Me.cmbCustomer.Size = New System.Drawing.Size(253, 20)
         Me.cmbCustomer.TabIndex = 6
         '
         'cmbManager
         '
         Me.cmbManager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbManager.FormattingEnabled = True
-        Me.cmbManager.Location = New System.Drawing.Point(350, 25)
+        Me.cmbManager.Location = New System.Drawing.Point(87, 52)
         Me.cmbManager.Name = "cmbManager"
-        Me.cmbManager.Size = New System.Drawing.Size(166, 20)
+        Me.cmbManager.Size = New System.Drawing.Size(127, 20)
         Me.cmbManager.TabIndex = 7
         '
         'chkComplete
@@ -372,11 +378,57 @@ Partial Class frmProjectList
         Me.btnCard.Text = "カード表示"
         Me.btnCard.UseVisualStyleBackColor = True
         '
+        'cmbRank
+        '
+        Me.cmbRank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbRank.FormattingEnabled = True
+        Me.cmbRank.Items.AddRange(New Object() {"全", "A", "B", "C"})
+        Me.cmbRank.Location = New System.Drawing.Point(388, 24)
+        Me.cmbRank.Name = "cmbRank"
+        Me.cmbRank.Size = New System.Drawing.Size(53, 20)
+        Me.cmbRank.TabIndex = 13
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(349, 28)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(36, 12)
+        Me.Label4.TabIndex = 14
+        Me.Label4.Text = "ランク："
+        '
+        'rdbOrderCode
+        '
+        Me.rdbOrderCode.AutoSize = True
+        Me.rdbOrderCode.Checked = True
+        Me.rdbOrderCode.Location = New System.Drawing.Point(456, 26)
+        Me.rdbOrderCode.Name = "rdbOrderCode"
+        Me.rdbOrderCode.Size = New System.Drawing.Size(62, 16)
+        Me.rdbOrderCode.TabIndex = 15
+        Me.rdbOrderCode.TabStop = True
+        Me.rdbOrderCode.Text = "コード順"
+        Me.rdbOrderCode.UseVisualStyleBackColor = True
+        '
+        'rdbOrderName
+        '
+        Me.rdbOrderName.AutoSize = True
+        Me.rdbOrderName.Location = New System.Drawing.Point(525, 26)
+        Me.rdbOrderName.Name = "rdbOrderName"
+        Me.rdbOrderName.Size = New System.Drawing.Size(59, 16)
+        Me.rdbOrderName.TabIndex = 16
+        Me.rdbOrderName.TabStop = True
+        Me.rdbOrderName.Text = "名前順"
+        Me.rdbOrderName.UseVisualStyleBackColor = True
+        '
         'frmProjectList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(704, 461)
+        Me.Controls.Add(Me.rdbOrderName)
+        Me.Controls.Add(Me.rdbOrderCode)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.cmbRank)
         Me.Controls.Add(Me.btnCard)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.btnExit)
@@ -439,4 +491,8 @@ Partial Class frmProjectList
     Friend WithEvents btnExit As Button
     Friend WithEvents btnNew As Button
     Friend WithEvents btnCard As Button
+    Friend WithEvents cmbRank As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents rdbOrderCode As RadioButton
+    Friend WithEvents rdbOrderName As RadioButton
 End Class
