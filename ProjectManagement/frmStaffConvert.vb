@@ -67,20 +67,34 @@
             'コネクションを開く
             connection.Open()
 
-            'データコマンドの定義と実行
-            'tbl_projectテーブルの処理
-            command.CommandText =
-                "UPDATE tbl_project SET staff_code='" & stcode_after & "' " &
-                "WHERE staff_code='" & stcode_before & "' AND complete_flag=0"
-            command.ExecuteNonQuery()
+            'トランザクションの開始
+            command.Transaction = connection.BeginTransaction()
+            Try
+                'データコマンドの定義と実行
+                'tbl_projectテーブルの処理
+                command.CommandText =
+                    "UPDATE tbl_project SET staff_code='" & stcode_after & "' " &
+                    "WHERE staff_code='" & stcode_before & "' AND complete_flag=0"
+                command.ExecuteNonQuery()
 
-            'tbl_jobテーブルの処理
-            command.CommandText =
-                "UPDATE tbl_job SET staff_code='" & stcode_after & "' " &
-                "WHERE staff_code='" & stcode_before & "' AND complete_flag=0"
-            command.ExecuteNonQuery()
+                'tbl_jobテーブルの処理
+                command.CommandText =
+                    "UPDATE tbl_job SET staff_code='" & stcode_after & "' " &
+                    "WHERE staff_code='" & stcode_before & "' AND complete_flag=0"
+                command.ExecuteNonQuery()
 
-            MsgBox("プロジェクトとジョブのスタッフを変更しました")
+                'トランザクションのコミット
+                command.Transaction.Commit()
+
+                MsgBox("プロジェクトとジョブのスタッフを変更しました")
+
+            Catch ex As Exception
+                '処理が失敗したとき
+                'トランザクションのロールバック
+                command.Transaction.Rollback()
+
+                MsgBox("エラーが発生したため、処理を中止します。" & vbCrLf & ex.Message)
+            End Try
 
             'コネクションを閉じる
             connection.Close()
