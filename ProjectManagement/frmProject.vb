@@ -73,4 +73,70 @@
         'このフォームを閉じる
         Me.Close()
     End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        '削除処理の実行を確認する
+        If MsgBox("このプロジェクトを削除してもよろしいですか？ ", MsgBoxStyle.YesNo Or
+                  MsgBoxStyle.DefaultButton2) <> MsgBoxResult.Yes Then
+            Return
+        End If
+
+        '処理の成功をチェックするフラグ（既定値はFalse:失敗）
+        Dim bSuccess As Boolean = False
+
+        'コネクションを指定する
+        Using connection As New SqlClient.SqlConnection(
+            My.Settings.project_jobConnectionString)
+
+            'データコマンドを定義する
+            Dim command As SqlClient.SqlCommand = connection.CreateCommand()
+
+            'コネクションを開く
+            connection.Open()
+
+            'トランザクションの開始
+            command.Transaction = connection.BeginTransaction()
+
+            Try
+                'データコマンドの定義と実行
+                'tbl_projectテーブルのデータ削除
+                command.CommandText = "DELETE FROM tbl_project WHERE project_code='" & Me.txtProjectCode.Text & "'"
+                command.ExecuteNonQuery()
+
+                'tbl_jobテーブルのデータ削除
+                command.CommandText = "DELETE FROM tbl_job WHERE project_code='" & Me.txtProjectCode.Text & "'"
+                command.ExecuteNonQuery()
+
+                'トランザクションのコミット
+                command.Transaction.Commit()
+
+                MsgBox("プロジェクトとジョブのデータを削除しました")
+
+                '処理が成功したため、フラグにTrue:成功をセットする
+                bSuccess = True
+
+            Catch ex As Exception
+                '処理が失敗したとき
+
+                'トランザクションのロールバック
+                command.Transaction.Rollback()
+
+                MsgBox("エラーが発生したため、処理を中止します" & vbCrLf & ex.Message)
+            End Try
+
+            'コネクションを閉じる
+            connection.Close()
+
+        End Using
+
+        '成功したときの後処理
+        If bSuccess Then
+            '［プロジェクト一覧］フォームを表示して、データを読み込み直す
+            frm_projectlist.Visible = True
+            frm_projectlist.LoadDatabase()
+
+            'このフォームを閉じる
+            Me.Close()
+        End If
+    End Sub
 End Class
