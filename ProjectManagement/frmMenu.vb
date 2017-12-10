@@ -47,4 +47,71 @@
         '待機カーソルを戻す
         Me.Cursor = Cursors.Default
     End Sub
+
+    Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
+        Dim sr As IO.StreamWriter
+
+        Dim exfolder As String
+        Dim linetext As String
+
+        '待機カーソル（砂時計）を表示する
+        Me.Cursor = Cursors.WaitCursor
+
+        '保存先フォルダーの指定
+        exfolder = IO.Path.Combine(Application.StartupPath, "データ出力\")
+
+        'フォルダーが存在しない場合には作成する
+        If IO.Directory.Exists(exfolder) = False Then
+            IO.Directory.CreateDirectory(exfolder)
+        End If
+
+        'ファイルを作成する
+        sr = New IO.StreamWriter(exfolder & "顧客データ.csv", False,
+                                 System.Text.Encoding.GetEncoding("Shift_JIS"))
+
+        'コネクションを指定する
+        Using connection As New SqlClient.SqlConnection(
+            My.Settings.project_jobConnectionString)
+
+            'データコマンドを定義する
+            Dim command As New SqlClient.SqlCommand("SELECT * FROM tbl_customer",
+                                                    connection)
+
+            'コネクションを開く
+            connection.Open()
+
+            'データリーダーの生成
+            Dim dr As SqlClient.SqlDataReader = command.ExecuteReader()
+
+            'データの分だけ処理を繰り返す
+            Do While dr.Read
+                '書き込むデータの生成（カンマ区切り）
+                linetext = dr("customer_code") & ","
+                linetext &= dr("customer_name") & ","
+                linetext &= dr("zipcode") & ","
+                linetext &= dr("address") & ","
+                linetext &= dr("person") & ","
+                linetext &= dr("tel") & ","
+                linetext &= dr("input_date")
+
+                'ファイルの書き込み
+                sr.WriteLine(linetext)
+            Loop
+
+            'データリーダーを閉じる
+            dr.Close()
+
+            'コネクションを閉じる
+            connection.Close()
+        End Using
+
+        'ファイルを閉じる
+        sr.Close()
+
+        '待機カーソル（砂時計）を戻す
+        Me.Cursor = Cursors.Default
+
+        MsgBox("顧客データを以下のフォルダーにエクスポートしました。" &
+               vbCrLf & vbCrLf & exfolder)
+    End Sub
 End Class
