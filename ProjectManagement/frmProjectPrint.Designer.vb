@@ -95,7 +95,7 @@ Partial Class frmProjectPrint
         Me.btnCancel.Text = "キャンセル"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
-        'frmProjectView
+        'frmProjectPrint
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -107,7 +107,7 @@ Partial Class frmProjectPrint
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "frmProjectView"
+        Me.Name = "frmProjectPrint"
         Me.Text = "プロジェクト印刷一覧"
         Me.ResumeLayout(False)
         Me.PerformLayout()
