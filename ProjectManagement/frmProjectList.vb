@@ -5,11 +5,18 @@
         Public CustomerCode As String '顧客コード
         Public Rank As String 'ランク
     End Class
+    Class ManagerItem ' Development task
+        Public ManagerName As String 'スタッフ名
+        Public ManagerCode As String 'スタッフコード
+        Public ManagerSection As String 'スタッフ部署コード
+    End Class
+
 
     Private m_Customers As New List(Of CustomerItem)
+
+    Private m_Managers As New List(Of ManagerItem) ' Development task
+
     Private Sub frmProjectList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'Project_jobDataSet.vw_projectlist' table. You can move, or remove it, as needed.
-        Me.Vw_projectlistTableAdapter.Fill(Me.Project_jobDataSet.vw_projectlist)
 
         'コネクションを指定する
         Using connection As New SqlClient.SqlConnection(
@@ -28,13 +35,21 @@
             '先頭に（すべて）を追加する
             cmbManager.Items.Add("（すべて）")
             'データコマンドの定義
-            command.CommandText = "SELECT staff_code, staff_name FROM tbl_staff ORDER BY staff_code"
+            command.CommandText = "SELECT staff_code, staff_name, staff_section FROM tbl_staff ORDER BY staff_code"
 
             'データリーダーからのデータの読み出し
             dr = command.ExecuteReader()
             Do While dr.Read
                 '読み出したデータをコンボボックスに追加する
                 cmbManager.Items.Add(dr("staff_code") & ":" & dr("staff_name"))
+
+                'CustomerItemクラスに読み出したデータをセットする
+                Dim item As New ManagerItem
+                item.ManagerCode = dr("staff_code")
+                item.ManagerName = dr("staff_name")
+                item.ManagerSection = dr("staff_section")
+
+                m_Managers.Add(item) ' Development task
             Loop
 
             'データリーダーを閉じる
@@ -60,12 +75,31 @@
             'データリーダーを閉じる
             dr.Close()
 
+
+            '### 部署のコンボボックスの設定 (Development task) ###
+            '先頭に（すべて）を追加する
+            cmbSection.Items.Add("（すべて）")
+            'データコマンドの定義
+            command.CommandText = "SELECT section_code, section_name FROM tbl_section ORDER BY section_code"
+
+            'データリーダーからのデータの読み出し
+            dr = command.ExecuteReader()
+            Do While dr.Read
+                '読み出したデータをコンボボックスに追加する
+                cmbSection.Items.Add(dr("section_code") & ":" & dr("section_name"))
+            Loop
+
+            'データリーダーを閉じる
+            dr.Close()
+
+
             'コネクションを閉じる
             connection.Close()
 
-            '2つのコンボボックスで既定の状態として、先頭の（すべて）を選択する
+            '3つのコンボボックスで既定の状態として、先頭の（すべて）を選択する
             cmbManager.SelectedIndex = 0
             cmbCustomer.SelectedIndex = 0
+            cmbSection.SelectedIndex = 0
 
             '［ランク］コンボボックスの既定値として［全］を選択する
             'この処理でイベントが発生し、［顧客］コンボボックスの一覧が生成される
@@ -103,6 +137,16 @@
             fs &= "customer_code = '" &
                 Strings.Left(cmbCustomer.Text, 7) & "'"
         End If
+
+        ' 部署の顧客の条件指定と条件式の作成 (Development task) 
+        If cmbSection.SelectedIndex > 0 Then
+            If fs <> "" Then
+                fs &= " AND "
+            End If
+
+            fs &= "staff_section = '" & Strings.Left(cmbSection.Text, 4) & "'"
+        End If
+
 
         '完了フラグの条件指定と条件式の作成
         If Not chkComplete.Checked Then
@@ -244,5 +288,49 @@
 
         '待機カーソル（砂時計）を戻す
         Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub cmbSection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSection.SelectedIndexChanged
+        '［部署］コンボボックスの一覧を作り直す ' Development task
+        SetSectionCombobox()
+    End Sub
+
+
+    Private Sub SetSectionCombobox() ' Development task
+        '待機カーソル（砂時計）を表示する
+        Me.Cursor = Cursors.WaitCursor
+
+        'コンボボックスの項目をクリアする
+        cmbManager.Items.Clear()
+        '先頭に（すべて）を追加する
+        cmbManager.Items.Add("（すべて）")
+
+        '選択した部署を取得する
+        Dim section_code As Integer = cmbSection.SelectedIndex
+
+        'マネージャーデータの配列を宣言する
+        Dim managerarray() As ManagerItem = Nothing
+
+        '条件によって、顧客データの配列を生成する
+        If section_code = 0 Then
+            '部署が"すべて"の場合
+            managerarray = (From a In m_Managers Order By a.ManagerCode).ToArray
+        Else
+            managerarray = (From a In m_Managers
+                            Where a.ManagerSection = Strings.Left(cmbSection.Text, 4)
+                            Order By a.ManagerCode).ToArray
+        End If
+        '配列からデータを取得して、コンボボックスに追加する
+        For Each c In managerarray
+            cmbManager.Items.Add(c.ManagerCode & ":" & c.ManagerName)
+        Next
+
+
+        '先頭の（すべて）を選択する
+        cmbManager.SelectedIndex = 0
+
+        '待機カーソル（砂時計）を戻す
+        Me.Cursor = Cursors.Default
+
     End Sub
 End Class

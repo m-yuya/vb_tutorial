@@ -24,10 +24,6 @@ Partial Class frmProjectList
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProjectList))
-        Me.Project_jobDataSet = New ProjectManagement.project_jobDataSet()
-        Me.Vw_projectlistBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Vw_projectlistTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.vw_projectlistTableAdapter()
-        Me.TableAdapterManager = New ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager()
         Me.Vw_projectlistBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
@@ -42,13 +38,6 @@ Partial Class frmProjectList
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Vw_projectlistBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.grdProjectList = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -64,37 +53,25 @@ Partial Class frmProjectList
         Me.Label4 = New System.Windows.Forms.Label()
         Me.rdbOrderCode = New System.Windows.Forms.RadioButton()
         Me.rdbOrderName = New System.Windows.Forms.RadioButton()
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Vw_projectlistBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cmbSection = New System.Windows.Forms.ComboBox()
+        Me.Label = New System.Windows.Forms.Label()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Vw_projectlistBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Project_jobDataSet = New ProjectManagement.project_jobDataSet()
+        Me.Vw_projectlistTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.vw_projectlistTableAdapter()
+        Me.TableAdapterManager = New ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager()
         CType(Me.Vw_projectlistBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Vw_projectlistBindingNavigator.SuspendLayout()
         CType(Me.grdProjectList, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Vw_projectlistBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Project_jobDataSet
-        '
-        Me.Project_jobDataSet.DataSetName = "project_jobDataSet"
-        Me.Project_jobDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Vw_projectlistBindingSource
-        '
-        Me.Vw_projectlistBindingSource.DataMember = "vw_projectlist"
-        Me.Vw_projectlistBindingSource.DataSource = Me.Project_jobDataSet
-        '
-        'Vw_projectlistTableAdapter
-        '
-        Me.Vw_projectlistTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.tbl_customerTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_jobTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_projectTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_sectionTableAdapter = Nothing
-        Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Vw_projectlistBindingNavigator
         '
@@ -127,8 +104,8 @@ Partial Class frmProjectList
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(29, 22)
+        Me.BindingNavigatorCountItem.Text = "/ {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
         'BindingNavigatorDeleteItem
@@ -223,62 +200,6 @@ Partial Class frmProjectList
         Me.grdProjectList.RowTemplate.Height = 21
         Me.grdProjectList.Size = New System.Drawing.Size(680, 351)
         Me.grdProjectList.TabIndex = 1
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "project_code"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "プロジェクトコード"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 80
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "project_name"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "プロジェクト名"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 125
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "customer_name"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "顧客名"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Width = 145
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "staff_name"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "マネージャー名"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        Me.DataGridViewTextBoxColumn9.Width = 90
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "start_date"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "開始日"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 70
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "end_date"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "終了日"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 70
-        '
-        'DataGridViewCheckBoxColumn1
-        '
-        Me.DataGridViewCheckBoxColumn1.DataPropertyName = "complete_flag"
-        Me.DataGridViewCheckBoxColumn1.HeaderText = "完了"
-        Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
-        Me.DataGridViewCheckBoxColumn1.ReadOnly = True
-        Me.DataGridViewCheckBoxColumn1.Width = 40
         '
         'Label1
         '
@@ -420,11 +341,112 @@ Partial Class frmProjectList
         Me.rdbOrderName.Text = "名前順"
         Me.rdbOrderName.UseVisualStyleBackColor = True
         '
+        'cmbSection
+        '
+        Me.cmbSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSection.FormattingEnabled = True
+        Me.cmbSection.Location = New System.Drawing.Point(388, 52)
+        Me.cmbSection.Name = "cmbSection"
+        Me.cmbSection.Size = New System.Drawing.Size(121, 20)
+        Me.cmbSection.TabIndex = 17
+        '
+        'Label
+        '
+        Me.Label.AutoSize = True
+        Me.Label.Location = New System.Drawing.Point(350, 58)
+        Me.Label.Name = "Label"
+        Me.Label.Size = New System.Drawing.Size(35, 12)
+        Me.Label.TabIndex = 18
+        Me.Label.Text = "部署："
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "project_code"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "プロジェクトコード"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 80
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "project_name"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "プロジェクト名"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 125
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "customer_name"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "顧客名"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Width = 145
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "staff_name"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "マネージャー名"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Width = 90
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "start_date"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "開始日"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 70
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "end_date"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "終了日"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 70
+        '
+        'DataGridViewCheckBoxColumn1
+        '
+        Me.DataGridViewCheckBoxColumn1.DataPropertyName = "complete_flag"
+        Me.DataGridViewCheckBoxColumn1.HeaderText = "完了"
+        Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
+        Me.DataGridViewCheckBoxColumn1.ReadOnly = True
+        Me.DataGridViewCheckBoxColumn1.Width = 40
+        '
+        'Vw_projectlistBindingSource
+        '
+        Me.Vw_projectlistBindingSource.DataMember = "vw_projectlist"
+        Me.Vw_projectlistBindingSource.DataSource = Me.Project_jobDataSet
+        '
+        'Project_jobDataSet
+        '
+        Me.Project_jobDataSet.DataSetName = "project_jobDataSet"
+        Me.Project_jobDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Vw_projectlistTableAdapter
+        '
+        Me.Vw_projectlistTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.tbl_customerTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_jobTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_projectTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_sectionTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
         'frmProjectList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(704, 461)
+        Me.Controls.Add(Me.Label)
+        Me.Controls.Add(Me.cmbSection)
         Me.Controls.Add(Me.rdbOrderName)
         Me.Controls.Add(Me.rdbOrderCode)
         Me.Controls.Add(Me.Label4)
@@ -444,12 +466,12 @@ Partial Class frmProjectList
         Me.Controls.Add(Me.Vw_projectlistBindingNavigator)
         Me.Name = "frmProjectList"
         Me.Text = "プロジェクト一覧"
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Vw_projectlistBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Vw_projectlistBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Vw_projectlistBindingNavigator.ResumeLayout(False)
         Me.Vw_projectlistBindingNavigator.PerformLayout()
         CType(Me.grdProjectList, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Vw_projectlistBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -495,4 +517,6 @@ Partial Class frmProjectList
     Friend WithEvents Label4 As Label
     Friend WithEvents rdbOrderCode As RadioButton
     Friend WithEvents rdbOrderName As RadioButton
+    Friend WithEvents cmbSection As ComboBox
+    Friend WithEvents Label As Label
 End Class
