@@ -1,6 +1,13 @@
 ﻿Public Class frmMenu
 
     Dim frm_st As frmStaff      '［スタッフマスター管理］フォーム
+    Dim frm_cs As frmCustomer   '［顧客マスター管理］フォーム
+    Dim frm_pr As frmProjectList    '［プロジェクト一覧］フォーム
+    Dim frm_pp As frmProjectPrint   '［プロジェクト一覧印刷］フォーム
+    Dim frm_su As frmStaffConvert   '［スタッフの一括更新］フォーム
+    Dim frm_sc As frmSection        '［部署マスタ管理］フォーム
+    Dim frm_us As frmUser           '［ユーザーマスタ管理］フォーム
+    Dim frm_job As frmJobList   '［ジョブ一覧］フォーム  [Development task]
 
     Private Sub btnStaff_Click(sender As Object, e As EventArgs) Handles btnStaff.Click
         '待機カーソル（砂時計）を表示する
@@ -29,8 +36,6 @@
             btnUser.Enabled = False
         End If
     End Sub
-
-    Dim frm_cs As frmCustomer   '［顧客マスター管理］フォーム
 
     Private Sub btnCustomer_Click(sender As Object, e As EventArgs) Handles btnCustomer.Click
         '待機カーソル（砂時計）を表示する
@@ -114,4 +119,106 @@
         MsgBox("顧客データを以下のフォルダーにエクスポートしました。" &
                vbCrLf & vbCrLf & exfolder)
     End Sub
+
+    Private Sub btnProject_Click(sender As Object, e As EventArgs) Handles btnProject.Click
+        '待機カーソル（砂時計）を表示する
+        Me.Cursor = Cursors.WaitCursor
+
+        '対象フォームのインスタンスが存在しないときに新しいインスタンスを生成する
+        If frm_pr Is Nothing OrElse frm_pr.IsDisposed() Then
+            frm_pr = New frmProjectList()
+        End If
+
+        'フォームを表示する
+        frm_pr.ShowDialog()
+        frm_pr.Dispose()
+
+        '待機カーソルを戻す
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub btnProjectReport_Click(sender As Object, e As EventArgs) Handles btnProjectReport.Click
+        '待機カーソル（砂時計）を表示する
+        Me.Cursor = Cursors.WaitCursor
+
+        '対象フォームのインスタンスが存在しないときに新しいインスタンスを生成する
+        If frm_pp Is Nothing OrElse frm_pp.IsDisposed() Then
+            frm_pp = New frmProjectPrint()
+        End If
+
+        'フォームを表示する
+        frm_pp.ShowDialog()
+        frm_pp.Dispose()
+
+        '待機カーソルを戻す
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub btnStaffConvert_Click(sender As Object, e As EventArgs) Handles btnStaffConvert.Click
+        '待機カーソル（砂時計）を表示する
+        Me.Cursor = Cursors.WaitCursor
+
+        '対象フォームのインスタンスが存在しないときに新しいインスタンスを生成する
+        If frm_su Is Nothing OrElse frm_su.IsDisposed() Then
+            frm_su = New frmStaffConvert()
+        End If
+
+        'フォームを表示する
+        frm_su.ShowDialog()
+        frm_su.Dispose()
+
+        '待機カーソルを戻す
+        Me.Cursor = Cursors.Default
+    End Sub
+
+
+    Private Sub btnJob_Click(sender As Object, e As EventArgs) Handles btnJob.Click ' Development task
+        '待機カーソル（砂時計）を表示する
+        Me.Cursor = Cursors.WaitCursor
+
+        '対象フォームのインスタンスが存在しないときに新しいインスタンスを生成する
+        If frm_job Is Nothing OrElse frm_job.IsDisposed() Then
+            frm_job = New frmJobList()
+        End If
+
+        'フォームを表示する
+        frm_job.ShowDialog()
+        frm_job.Dispose()
+
+        '待機カーソルを戻す
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub btnUser_Click(sender As Object, e As EventArgs) Handles btnUser.Click
+        '待機カーソル（砂時計）を表示する
+        Me.Cursor = Cursors.WaitCursor
+
+        '対象フォームのインスタンスが存在しないときに新しいインスタンスを生成する
+        If frm_us Is Nothing OrElse frm_us.IsDisposed() Then
+            frm_us = New frmUser()
+        End If
+
+        'フォームを表示する
+        frm_us.ShowDialog()
+
+        '待機カーソルを戻す
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub btnSection_Click(sender As Object, e As EventArgs) Handles btnSection.Click
+        '待機カーソル（砂時計）を表示する
+        Me.Cursor = Cursors.WaitCursor
+
+        '対象フォームのインスタンスが存在しないときに新しいインスタンスを生成する
+        If frm_sc Is Nothing OrElse frm_sc.IsDisposed() Then
+            frm_sc = New frmSection()
+        End If
+
+        'フォームを表示する
+        frm_sc.ShowDialog()
+
+        '待機カーソルを戻す
+        Me.Cursor = Cursors.Default
+    End Sub
+
 End Class

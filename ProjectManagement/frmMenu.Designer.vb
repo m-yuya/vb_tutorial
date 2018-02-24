@@ -24,6 +24,7 @@ Partial Class frmMenu
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnJob = New System.Windows.Forms.Button()
         Me.btnProjectReport = New System.Windows.Forms.Button()
         Me.btnProject = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -54,12 +55,23 @@ Partial Class frmMenu
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.btnJob)
         Me.Panel1.Controls.Add(Me.btnProjectReport)
         Me.Panel1.Controls.Add(Me.btnProject)
         Me.Panel1.Location = New System.Drawing.Point(12, 44)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(181, 251)
         Me.Panel1.TabIndex = 1
+        '
+        'btnJob
+        '
+        Me.btnJob.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btnJob.Location = New System.Drawing.Point(14, 175)
+        Me.btnJob.Name = "btnJob"
+        Me.btnJob.Size = New System.Drawing.Size(154, 61)
+        Me.btnJob.TabIndex = 6
+        Me.btnJob.Text = "ジョブ管理"
+        Me.btnJob.UseVisualStyleBackColor = True
         '
         'btnProjectReport
         '
@@ -206,4 +218,5 @@ Partial Class frmMenu
     Friend WithEvents btnExport As Button
     Friend WithEvents btnStaffConvert As Button
     Friend WithEvents btnQuit As Button
+    Friend WithEvents btnJob As Button
 End Class
