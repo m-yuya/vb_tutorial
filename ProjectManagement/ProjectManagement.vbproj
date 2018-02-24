@@ -157,9 +157,7 @@
     <Compile Include="frmSection.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStaff.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="frmStaff.vb" />
     <Compile Include="frmStaff.Designer.vb">
       <DependentUpon>frmStaff.vb</DependentUpon>
       <SubType>Form</SubType>
@@ -196,11 +194,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>project_jobDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="project_jobDataSet11.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>project_jobDataSet11.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -273,17 +266,6 @@
     </None>
     <None Include="project_jobDataSet.xss">
       <DependentUpon>project_jobDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="project_jobDataSet11.xsc">
-      <DependentUpon>project_jobDataSet11.xsd</DependentUpon>
-    </None>
-    <None Include="project_jobDataSet11.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>project_jobDataSet11.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="project_jobDataSet11.xss">
-      <DependentUpon>project_jobDataSet11.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
