@@ -6,11 +6,33 @@
 
     End Sub
 
+    Dim is_use_joblist As Integer ' Development task
     Private frm_projectlist As frmProjectList
+    Private frm_joblist As frmJobList ' Development task
+
 
     Public Sub SetProjectCode(pcode As String, f As frmProjectList)
         '呼び出し元フォームを格納する
         frm_projectlist = f
+        is_use_joblist = 0
+
+        'スタッフマスターのデータをデータテーブルにセットする
+        Me.Tbl_staffTableAdapter.Fill(Me.Project_jobDataSet.tbl_staff)
+
+        '顧客マスターのデータをデータテーブルにセットする
+        Me.Tbl_customerTableAdapter.Fill(Me.Project_jobDataSet.tbl_customer)
+
+        '受け取ったプロジェクトコードを使用して、該当するプロジェクトデータをデータテーブルにセットする
+        Me.Tbl_projectTableAdapter.FillByPCode(Me.Project_jobDataSet.tbl_project, pcode)
+
+        '受け取ったプロジェクトコードを使用して、該当するジョブデータをデータテーブルにセットする
+        Me.Tbl_jobTableAdapter.FillByPCode(Me.Project_jobDataSet.tbl_job, pcode)
+    End Sub
+
+    Public Sub SetProjectCode_joblist(pcode As String, f As frmJobList) ' Development task
+        '呼び出し元フォームを格納する
+        frm_joblist = f
+        is_use_joblist = 1
 
         'スタッフマスターのデータをデータテーブルにセットする
         Me.Tbl_staffTableAdapter.Fill(Me.Project_jobDataSet.tbl_staff)
@@ -67,8 +89,12 @@
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        '呼び出し元のフォームを表示する
-        frm_projectlist.Visible = True
+        If is_use_joblist = 0 Then
+            '呼び出し元のフォームを表示する
+            frm_projectlist.Visible = True
+        Else
+            frm_joblist.Visible = True
+        End If
 
         'このフォームを閉じる
         Me.Close()
@@ -131,9 +157,15 @@
 
         '成功したときの後処理
         If bSuccess Then
-            '［プロジェクト一覧］フォームを表示して、データを読み込み直す
-            frm_projectlist.Visible = True
-            frm_projectlist.LoadDatabase()
+            If is_use_joblist = 0 Then
+                '［プロジェクト一覧］フォームを表示して、データを読み込み直す
+                frm_projectlist.Visible = True
+                frm_projectlist.LoadDatabase()
+            Else
+                '［ジョブ一覧］フォームを表示して、データを読み込み直す
+                frm_joblist.Visible = True
+                frm_joblist.LoadDatabase()
+            End If
 
             'このフォームを閉じる
             Me.Close()
