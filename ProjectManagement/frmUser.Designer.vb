@@ -24,10 +24,10 @@ Partial Class frmUser
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmUser))
-        Me.Project_jobDataSet = New ProjectManagement.project_jobDataSet()
+        Me.Project_jobDataSet1 = New ProjectManagement.Project_jobDataSet1()
         Me.Tbl_staffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Tbl_staffTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_staffTableAdapter()
-        Me.TableAdapterManager = New ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager()
+        Me.Tbl_staffTableAdapter = New ProjectManagement.Project_jobDataSet1TableAdapters.tbl_staffTableAdapter()
+        Me.TableAdapterManager = New ProjectManagement.Project_jobDataSet1TableAdapters.TableAdapterManager()
         Me.Tbl_staffBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
@@ -48,22 +48,22 @@ Partial Class frmUser
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewCheckBoxColumn2 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_staffBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_staffBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tbl_staffBindingNavigator.SuspendLayout()
         CType(Me.Tbl_staffDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Project_jobDataSet
+        'Project_jobDataSet1
         '
-        Me.Project_jobDataSet.DataSetName = "project_jobDataSet"
-        Me.Project_jobDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Project_jobDataSet1.DataSetName = "Project_jobDataSet1"
+        Me.Project_jobDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Tbl_staffBindingSource
         '
         Me.Tbl_staffBindingSource.DataMember = "tbl_staff"
-        Me.Tbl_staffBindingSource.DataSource = Me.Project_jobDataSet
+        Me.Tbl_staffBindingSource.DataSource = Me.Project_jobDataSet1
         '
         'Tbl_staffTableAdapter
         '
@@ -77,7 +77,7 @@ Partial Class frmUser
         Me.TableAdapterManager.tbl_projectTableAdapter = Nothing
         Me.TableAdapterManager.tbl_sectionTableAdapter = Nothing
         Me.TableAdapterManager.tbl_staffTableAdapter = Me.Tbl_staffTableAdapter
-        Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UpdateOrder = ProjectManagement.Project_jobDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Tbl_staffBindingNavigator
         '
@@ -251,7 +251,7 @@ Partial Class frmUser
         Me.Controls.Add(Me.Tbl_staffBindingNavigator)
         Me.Name = "frmUser"
         Me.Text = "ユーザー管理"
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tbl_staffBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tbl_staffBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Tbl_staffBindingNavigator.ResumeLayout(False)
@@ -262,10 +262,10 @@ Partial Class frmUser
 
     End Sub
 
-    Friend WithEvents Project_jobDataSet As project_jobDataSet
+    Friend WithEvents Project_jobDataSet1 As Project_jobDataSet1
     Friend WithEvents Tbl_staffBindingSource As BindingSource
-    Friend WithEvents Tbl_staffTableAdapter As project_jobDataSetTableAdapters.tbl_staffTableAdapter
-    Friend WithEvents TableAdapterManager As project_jobDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents Tbl_staffTableAdapter As Project_jobDataSet1TableAdapters.tbl_staffTableAdapter
+    Friend WithEvents TableAdapterManager As Project_jobDataSet1TableAdapters.TableAdapterManager
     Friend WithEvents Tbl_staffBindingNavigator As BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As ToolStripLabel

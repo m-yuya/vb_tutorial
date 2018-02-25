@@ -4,7 +4,7 @@
 
         'コネクションを指定する
         Using connection As New SqlClient.SqlConnection(
-            My.Settings.project_jobConnectionString)
+            My.Settings.project_jobConnectionString1)
 
             'データコマンドを作成する
             Dim command As SqlClient.SqlCommand = connection.CreateCommand()
@@ -73,13 +73,13 @@
 
         'データアダプターにSQLステートメントを設定する
         Dim da As New SqlClient.SqlDataAdapter(
-            sql, My.Settings.project_jobConnectionString)
+            sql, My.Settings.project_jobConnectionString1)
 
         'データテーブルをクリアする
-        Me.Project_jobDataSet.vw_joblist.Clear()
+        Me.Project_jobDataSet1.vw_joblist.Clear()
 
         'データテーブルにデータアダプターを介してデータをセットする
-        da.Fill(Me.Project_jobDataSet.vw_joblist)
+        da.Fill(Me.Project_jobDataSet1.vw_joblist)
     End Sub
 
     Private Sub btnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click
@@ -107,7 +107,7 @@
         name = grdJobList.Item(2, row).Value.ToString()
 
         Using connection As New SqlClient.SqlConnection(
-            My.Settings.project_jobConnectionString)
+            My.Settings.project_jobConnectionString1)
 
             'データコマンドを作成する
             Dim command As SqlClient.SqlCommand = connection.CreateCommand()

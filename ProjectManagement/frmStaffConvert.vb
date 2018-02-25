@@ -7,7 +7,7 @@
 
         'コネクションを指定する
         Using connection As New SqlClient.SqlConnection(
-            My.Settings.project_jobConnectionString)
+            My.Settings.project_jobConnectionString1)
 
             'データコマンドを定義する
             Dim command As New SqlClient.SqlCommand(sql, connection)
@@ -59,7 +59,7 @@
 
         'コネクションを指定する
         Using connection As New SqlClient.SqlConnection(
-            My.Settings.project_jobConnectionString)
+            My.Settings.project_jobConnectionString1)
 
             'データコマンドを作成する
             Dim command As SqlClient.SqlCommand = connection.CreateCommand()

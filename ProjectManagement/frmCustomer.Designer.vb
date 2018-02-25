@@ -24,12 +24,11 @@ Partial Class frmCustomer
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCustomer))
-        Me.Project_jobDataSet = New ProjectManagement.project_jobDataSet()
+        Me.Project_jobDataSet1 = New ProjectManagement.project_jobDataSet1()
         Me.Tbl_customerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Tbl_customerTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_customerTableAdapter()
-        Me.TableAdapterManager = New ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager()
+        Me.Tbl_customerTableAdapter = New ProjectManagement.project_jobDataSet1TableAdapters.tbl_customerTableAdapter()
+        Me.TableAdapterManager = New ProjectManagement.project_jobDataSet1TableAdapters.TableAdapterManager()
         Me.Tbl_customerBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -40,6 +39,7 @@ Partial Class frmCustomer
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.Tbl_customerBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.Tbl_customerDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -50,27 +50,27 @@ Partial Class frmCustomer
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FillByNameToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.FilternameToolStripLabel = New System.Windows.Forms.ToolStripLabel()
-        Me.FilternameToolStripTextBox = New System.Windows.Forms.ToolStripTextBox()
-        Me.FillByNameToolStripButton = New System.Windows.Forms.ToolStripButton()
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FillByNameToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.FilternameToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.FilternameToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
+        Me.FillByNameToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_customerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_customerBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tbl_customerBindingNavigator.SuspendLayout()
         CType(Me.Tbl_customerDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FillByNameToolStrip.SuspendLayout()
+        Me.FillByNameToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Project_jobDataSet
+        'Project_jobDataSet1
         '
-        Me.Project_jobDataSet.DataSetName = "project_jobDataSet"
-        Me.Project_jobDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Project_jobDataSet1.DataSetName = "Project_jobDataSet1"
+        Me.Project_jobDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Tbl_customerBindingSource
         '
         Me.Tbl_customerBindingSource.DataMember = "tbl_customer"
-        Me.Tbl_customerBindingSource.DataSource = Me.Project_jobDataSet
+        Me.Tbl_customerBindingSource.DataSource = Me.Project_jobDataSet1
         '
         'Tbl_customerTableAdapter
         '
@@ -80,9 +80,11 @@ Partial Class frmCustomer
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.tbl_customerTableAdapter = Me.Tbl_customerTableAdapter
+        Me.TableAdapterManager.tbl_jobTableAdapter = Nothing
+        Me.TableAdapterManager.tbl_projectTableAdapter = Nothing
         Me.TableAdapterManager.tbl_sectionTableAdapter = Nothing
         Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Tbl_customerBindingNavigator
         '
@@ -98,24 +100,15 @@ Partial Class frmCustomer
         Me.Tbl_customerBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.Tbl_customerBindingNavigator.Name = "Tbl_customerBindingNavigator"
         Me.Tbl_customerBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.Tbl_customerBindingNavigator.Size = New System.Drawing.Size(724, 25)
+        Me.Tbl_customerBindingNavigator.Size = New System.Drawing.Size(744, 25)
         Me.Tbl_customerBindingNavigator.TabIndex = 0
         Me.Tbl_customerBindingNavigator.Text = "BindingNavigator1"
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Add new"
         '
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(29, 22)
+        Me.BindingNavigatorCountItem.Text = "/ {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
         'BindingNavigatorDeleteItem
@@ -187,6 +180,15 @@ Partial Class frmCustomer
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
         'Tbl_customerBindingNavigatorSaveItem
         '
         Me.Tbl_customerBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -208,7 +210,7 @@ Partial Class frmCustomer
         Me.Tbl_customerDataGridView.Location = New System.Drawing.Point(0, 51)
         Me.Tbl_customerDataGridView.Name = "Tbl_customerDataGridView"
         Me.Tbl_customerDataGridView.RowTemplate.Height = 21
-        Me.Tbl_customerDataGridView.Size = New System.Drawing.Size(724, 432)
+        Me.Tbl_customerDataGridView.Size = New System.Drawing.Size(744, 453)
         Me.Tbl_customerDataGridView.TabIndex = 1
         '
         'DataGridViewTextBoxColumn1
@@ -266,61 +268,60 @@ Partial Class frmCustomer
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.Width = 80
         '
-        'FillByNameToolStrip
+        'FillByNameToolStrip1
         '
-        Me.FillByNameToolStrip.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.FillByNameToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FilternameToolStripLabel, Me.FilternameToolStripTextBox, Me.FillByNameToolStripButton})
-        Me.FillByNameToolStrip.Location = New System.Drawing.Point(0, 25)
-        Me.FillByNameToolStrip.Name = "FillByNameToolStrip"
-        Me.FillByNameToolStrip.Size = New System.Drawing.Size(724, 25)
-        Me.FillByNameToolStrip.TabIndex = 2
-        Me.FillByNameToolStrip.Text = "FillByNameToolStrip"
+        Me.FillByNameToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FilternameToolStripLabel1, Me.FilternameToolStripTextBox1, Me.FillByNameToolStripButton1})
+        Me.FillByNameToolStrip1.Location = New System.Drawing.Point(0, 25)
+        Me.FillByNameToolStrip1.Name = "FillByNameToolStrip1"
+        Me.FillByNameToolStrip1.Size = New System.Drawing.Size(744, 25)
+        Me.FillByNameToolStrip1.TabIndex = 3
+        Me.FillByNameToolStrip1.Text = "FillByNameToolStrip1"
         '
-        'FilternameToolStripLabel
+        'FilternameToolStripLabel1
         '
-        Me.FilternameToolStripLabel.Name = "FilternameToolStripLabel"
-        Me.FilternameToolStripLabel.Size = New System.Drawing.Size(46, 22)
-        Me.FilternameToolStripLabel.Text = "顧客名:"
+        Me.FilternameToolStripLabel1.Name = "FilternameToolStripLabel1"
+        Me.FilternameToolStripLabel1.Size = New System.Drawing.Size(55, 22)
+        Me.FilternameToolStripLabel1.Text = "顧客名："
         '
-        'FilternameToolStripTextBox
+        'FilternameToolStripTextBox1
         '
-        Me.FilternameToolStripTextBox.Name = "FilternameToolStripTextBox"
-        Me.FilternameToolStripTextBox.Size = New System.Drawing.Size(100, 25)
+        Me.FilternameToolStripTextBox1.Name = "FilternameToolStripTextBox1"
+        Me.FilternameToolStripTextBox1.Size = New System.Drawing.Size(100, 25)
         '
-        'FillByNameToolStripButton
+        'FillByNameToolStripButton1
         '
-        Me.FillByNameToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.FillByNameToolStripButton.Name = "FillByNameToolStripButton"
-        Me.FillByNameToolStripButton.Size = New System.Drawing.Size(77, 22)
-        Me.FillByNameToolStripButton.Text = "フィルター実行"
+        Me.FillByNameToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.FillByNameToolStripButton1.Name = "FillByNameToolStripButton1"
+        Me.FillByNameToolStripButton1.Size = New System.Drawing.Size(69, 22)
+        Me.FillByNameToolStripButton1.Text = "フィルタ実行"
         '
         'frmCustomer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(724, 482)
-        Me.Controls.Add(Me.FillByNameToolStrip)
+        Me.ClientSize = New System.Drawing.Size(744, 503)
+        Me.Controls.Add(Me.FillByNameToolStrip1)
         Me.Controls.Add(Me.Tbl_customerDataGridView)
         Me.Controls.Add(Me.Tbl_customerBindingNavigator)
         Me.Name = "frmCustomer"
         Me.Text = "顧客マスター管理"
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tbl_customerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tbl_customerBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Tbl_customerBindingNavigator.ResumeLayout(False)
         Me.Tbl_customerBindingNavigator.PerformLayout()
         CType(Me.Tbl_customerDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FillByNameToolStrip.ResumeLayout(False)
-        Me.FillByNameToolStrip.PerformLayout()
+        Me.FillByNameToolStrip1.ResumeLayout(False)
+        Me.FillByNameToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Project_jobDataSet As project_jobDataSet
+    Friend WithEvents Project_jobDataSet1 As Project_jobDataSet1
     Friend WithEvents Tbl_customerBindingSource As BindingSource
-    Friend WithEvents Tbl_customerTableAdapter As project_jobDataSetTableAdapters.tbl_customerTableAdapter
-    Friend WithEvents TableAdapterManager As project_jobDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents Tbl_customerTableAdapter As Project_jobDataSet1TableAdapters.tbl_customerTableAdapter
+    Friend WithEvents TableAdapterManager As Project_jobDataSet1TableAdapters.TableAdapterManager
     Friend WithEvents Tbl_customerBindingNavigator As BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As ToolStripLabel
@@ -343,8 +344,8 @@ Partial Class frmCustomer
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents FillByNameToolStrip As ToolStrip
-    Friend WithEvents FilternameToolStripLabel As ToolStripLabel
-    Friend WithEvents FilternameToolStripTextBox As ToolStripTextBox
-    Friend WithEvents FillByNameToolStripButton As ToolStripButton
+    Friend WithEvents FillByNameToolStrip1 As ToolStrip
+    Friend WithEvents FilternameToolStripLabel1 As ToolStripLabel
+    Friend WithEvents FilternameToolStripTextBox1 As ToolStripTextBox
+    Friend WithEvents FillByNameToolStripButton1 As ToolStripButton
 End Class

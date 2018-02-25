@@ -2,7 +2,7 @@
     Private Sub Tbl_projectBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles Tbl_projectBindingNavigatorSaveItem.Click
         Me.Validate()
         Me.Tbl_projectBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.Project_jobDataSet)
+        Me.TableAdapterManager.UpdateAll(Me.Project_jobDataSet1)
 
     End Sub
 
@@ -17,16 +17,16 @@
         is_use_joblist = 0
 
         'スタッフマスターのデータをデータテーブルにセットする
-        Me.Tbl_staffTableAdapter.Fill(Me.Project_jobDataSet.tbl_staff)
+        Me.Tbl_staffTableAdapter.Fill(Me.Project_jobDataSet1.tbl_staff)
 
         '顧客マスターのデータをデータテーブルにセットする
-        Me.Tbl_customerTableAdapter.Fill(Me.Project_jobDataSet.tbl_customer)
+        Me.Tbl_customerTableAdapter.Fill(Me.Project_jobDataSet1.tbl_customer)
 
         '受け取ったプロジェクトコードを使用して、該当するプロジェクトデータをデータテーブルにセットする
-        Me.Tbl_projectTableAdapter.FillByPCode(Me.Project_jobDataSet.tbl_project, pcode)
+        Me.Tbl_projectTableAdapter.FillByPCode(Me.Project_jobDataSet1.tbl_project, pcode)
 
         '受け取ったプロジェクトコードを使用して、該当するジョブデータをデータテーブルにセットする
-        Me.Tbl_jobTableAdapter.FillByPCode(Me.Project_jobDataSet.tbl_job, pcode)
+        Me.Tbl_jobTableAdapter.FillByPCode(Me.Project_jobDataSet1.tbl_job, pcode)
     End Sub
 
     Public Sub SetProjectCode_joblist(pcode As String, f As frmJobList) ' Development task
@@ -35,16 +35,16 @@
         is_use_joblist = 1
 
         'スタッフマスターのデータをデータテーブルにセットする
-        Me.Tbl_staffTableAdapter.Fill(Me.Project_jobDataSet.tbl_staff)
+        Me.Tbl_staffTableAdapter.Fill(Me.Project_jobDataSet1.tbl_staff)
 
         '顧客マスターのデータをデータテーブルにセットする
-        Me.Tbl_customerTableAdapter.Fill(Me.Project_jobDataSet.tbl_customer)
+        Me.Tbl_customerTableAdapter.Fill(Me.Project_jobDataSet1.tbl_customer)
 
         '受け取ったプロジェクトコードを使用して、該当するプロジェクトデータをデータテーブルにセットする
-        Me.Tbl_projectTableAdapter.FillByPCode(Me.Project_jobDataSet.tbl_project, pcode)
+        Me.Tbl_projectTableAdapter.FillByPCode(Me.Project_jobDataSet1.tbl_project, pcode)
 
         '受け取ったプロジェクトコードを使用して、該当するジョブデータをデータテーブルにセットする
-        Me.Tbl_jobTableAdapter.FillByPCode(Me.Project_jobDataSet.tbl_job, pcode)
+        Me.Tbl_jobTableAdapter.FillByPCode(Me.Project_jobDataSet1.tbl_job, pcode)
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
@@ -83,7 +83,7 @@
             Tbl_projectBindingSource.EndEdit()
 
             'テーブルアダプターを介して、tbl_projectテーブルを更新する
-            Me.Tbl_projectTableAdapter.Update(Me.Project_jobDataSet.tbl_project)
+            Me.Tbl_projectTableAdapter.Update(Me.Project_jobDataSet1.tbl_project)
 
         End If
     End Sub
@@ -112,7 +112,7 @@
 
         'コネクションを指定する
         Using connection As New SqlClient.SqlConnection(
-            My.Settings.project_jobConnectionString)
+            My.Settings.project_jobConnectionString1)
 
             'データコマンドを定義する
             Dim command As SqlClient.SqlCommand = connection.CreateCommand()

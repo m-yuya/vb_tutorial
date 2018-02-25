@@ -34,17 +34,17 @@ Partial Class frmJobList
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Vw_joblistBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Project_jobDataSet = New ProjectManagement.project_jobDataSet()
+        Me.Project_jobDataSet1 = New ProjectManagement.Project_jobDataSet1()
         Me.btnFilter = New System.Windows.Forms.Button()
         Me.btnCard = New System.Windows.Forms.Button()
         Me.cmbSection = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.chkComplete = New System.Windows.Forms.CheckBox()
-        Me.Vw_joblistTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.vw_joblistTableAdapter()
-        Me.TableAdapterManager = New ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager()
+        Me.Vw_joblistTableAdapter = New ProjectManagement.Project_jobDataSet1TableAdapters.vw_joblistTableAdapter()
+        Me.TableAdapterManager = New ProjectManagement.Project_jobDataSet1TableAdapters.TableAdapterManager()
         CType(Me.grdJobList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_joblistBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnQuit
@@ -129,12 +129,12 @@ Partial Class frmJobList
         'Vw_joblistBindingSource
         '
         Me.Vw_joblistBindingSource.DataMember = "vw_joblist"
-        Me.Vw_joblistBindingSource.DataSource = Me.Project_jobDataSet
+        Me.Vw_joblistBindingSource.DataSource = Me.Project_jobDataSet1
         '
-        'Project_jobDataSet
+        'Project_jobDataSet1
         '
-        Me.Project_jobDataSet.DataSetName = "project_jobDataSet"
-        Me.Project_jobDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Project_jobDataSet1.DataSetName = "Project_jobDataSet1"
+        Me.Project_jobDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnFilter
         '
@@ -196,7 +196,7 @@ Partial Class frmJobList
         Me.TableAdapterManager.tbl_projectTableAdapter = Nothing
         Me.TableAdapterManager.tbl_sectionTableAdapter = Nothing
         Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UpdateOrder = ProjectManagement.Project_jobDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'frmJobList
         '
@@ -214,17 +214,17 @@ Partial Class frmJobList
         Me.Text = "　ジョブ一覧"
         CType(Me.grdJobList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Vw_joblistBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents btnQuit As Button
-    Friend WithEvents Project_jobDataSet As project_jobDataSet
+    Friend WithEvents Project_jobDataSet1 As Project_jobDataSet1
     Friend WithEvents Vw_joblistBindingSource As BindingSource
-    Friend WithEvents Vw_joblistTableAdapter As project_jobDataSetTableAdapters.vw_joblistTableAdapter
-    Friend WithEvents TableAdapterManager As project_jobDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents Vw_joblistTableAdapter As Project_jobDataSet1TableAdapters.vw_joblistTableAdapter
+    Friend WithEvents TableAdapterManager As Project_jobDataSet1TableAdapters.TableAdapterManager
     Friend WithEvents grdJobList As DataGridView
     Friend WithEvents btnFilter As Button
     Friend WithEvents btnCard As Button

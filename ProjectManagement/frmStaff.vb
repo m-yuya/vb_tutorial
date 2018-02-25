@@ -4,13 +4,13 @@
         If Not CheckEditData() Then Return
 
         'データセットが更新されていないときには、以下の処理を実行しない
-        If Not Project_jobDataSet.HasChanges() Then Return
+        If Not Project_jobDataSet1.HasChanges() Then Return
 
         If MsgBox("これまでの修正内容をデータベースに保存しますか？ ", MsgBoxStyle.YesNo) =
             MsgBoxResult.Yes Then
             Try
                 '入力日を自動更新する
-                For Each drw As DataRow In Me.Project_jobDataSet.tbl_staff.Rows()
+                For Each drw As DataRow In Me.Project_jobDataSet1.tbl_staff.Rows()
                     'データが修正または追加されている場合には、入力日にシステム日をセットする
                     If drw.RowState = DataRowState.Modified Or
                     drw.RowState = DataRowState.Added Then
@@ -19,7 +19,7 @@
                 Next
 
                 'データセットのtbl_staffテーブルを更新する
-                Tbl_staffTableAdapter.Update(Project_jobDataSet.tbl_staff)
+                Tbl_staffTableAdapter.Update(Project_jobDataSet1.tbl_staff)
 
                 MsgBox("データベースに登録しました")
 
@@ -31,10 +31,10 @@
     End Sub
 
     Private Sub frmStaff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'Project_jobDataSet.tbl_section' table. You can move, or remove it, as needed.
-        Me.Tbl_sectionTableAdapter.Fill(Me.Project_jobDataSet.tbl_section)
-        'TODO: This line of code loads data into the 'Project_jobDataSet.tbl_staff' table. You can move, or remove it, as needed.
-        Me.Tbl_staffTableAdapter.Fill(Me.Project_jobDataSet.tbl_staff)
+        'TODO: This line of code loads data into the 'Project_jobDataSet1.tbl_section' table. You can move, or remove it, as needed.
+        Me.Tbl_sectionTableAdapter.Fill(Me.Project_jobDataSet1.tbl_section)
+        'TODO: This line of code loads data into the 'Project_jobDataSet1.tbl_staff' table. You can move, or remove it, as needed.
+        Me.Tbl_staffTableAdapter.Fill(Me.Project_jobDataSet1.tbl_staff)
 
     End Sub
 
@@ -237,7 +237,7 @@
     Private Function CheckMaxLength(fieldname As String, value As String) As Boolean
         'データセットから列の情報を読み取る
         Dim column As DataColumn =
-            Project_jobDataSet.tbl_staff.Columns(fieldname)
+            Project_jobDataSet1.tbl_staff.Columns(fieldname)
         'シフトJISで文字列のバイト数を取得する
         Dim length As Integer =
             System.Text.Encoding.GetEncoding(932).GetByteCount(value)
@@ -273,7 +273,7 @@
         Loop
 
         '既存のスタッフコードとの重複を検査する
-        For Each drw As DataRow In Project_jobDataSet.tbl_staff.Rows()
+        For Each drw As DataRow In Project_jobDataSet1.tbl_staff.Rows()
             '行の状態が"削除"のデータを除外する
             If drw.RowState <> DataRowState.Deleted Then
                 'この行のスタッフコードと、入力されたスタッフコードを比較する

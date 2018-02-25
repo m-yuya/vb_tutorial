@@ -24,10 +24,10 @@ Partial Class frmSection
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSection))
-        Me.Project_jobDataSet = New ProjectManagement.project_jobDataSet()
+        Me.Project_jobDataSet1 = New ProjectManagement.Project_jobDataSet1()
         Me.Tbl_sectionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Tbl_sectionTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_sectionTableAdapter()
-        Me.TableAdapterManager = New ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager()
+        Me.Tbl_sectionTableAdapter = New ProjectManagement.Project_jobDataSet1TableAdapters.tbl_sectionTableAdapter()
+        Me.TableAdapterManager = New ProjectManagement.Project_jobDataSet1TableAdapters.TableAdapterManager()
         Me.Tbl_sectionBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
@@ -44,22 +44,22 @@ Partial Class frmSection
         Me.Tbl_sectionDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_sectionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_sectionBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tbl_sectionBindingNavigator.SuspendLayout()
         CType(Me.Tbl_sectionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Project_jobDataSet
+        'Project_jobDataSet1
         '
-        Me.Project_jobDataSet.DataSetName = "project_jobDataSet"
-        Me.Project_jobDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Project_jobDataSet1.DataSetName = "Project_jobDataSet1"
+        Me.Project_jobDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Tbl_sectionBindingSource
         '
         Me.Tbl_sectionBindingSource.DataMember = "tbl_section"
-        Me.Tbl_sectionBindingSource.DataSource = Me.Project_jobDataSet
+        Me.Tbl_sectionBindingSource.DataSource = Me.Project_jobDataSet1
         '
         'Tbl_sectionTableAdapter
         '
@@ -73,7 +73,7 @@ Partial Class frmSection
         Me.TableAdapterManager.tbl_projectTableAdapter = Nothing
         Me.TableAdapterManager.tbl_sectionTableAdapter = Me.Tbl_sectionTableAdapter
         Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UpdateOrder = ProjectManagement.Project_jobDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Tbl_sectionBindingNavigator
         '
@@ -222,7 +222,7 @@ Partial Class frmSection
         Me.Controls.Add(Me.Tbl_sectionBindingNavigator)
         Me.Name = "frmSection"
         Me.Text = "部署マスター管理"
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tbl_sectionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tbl_sectionBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Tbl_sectionBindingNavigator.ResumeLayout(False)
@@ -233,10 +233,10 @@ Partial Class frmSection
 
     End Sub
 
-    Friend WithEvents Project_jobDataSet As project_jobDataSet
+    Friend WithEvents Project_jobDataSet1 As Project_jobDataSet1
     Friend WithEvents Tbl_sectionBindingSource As BindingSource
-    Friend WithEvents Tbl_sectionTableAdapter As project_jobDataSetTableAdapters.tbl_sectionTableAdapter
-    Friend WithEvents TableAdapterManager As project_jobDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents Tbl_sectionTableAdapter As Project_jobDataSet1TableAdapters.tbl_sectionTableAdapter
+    Friend WithEvents TableAdapterManager As Project_jobDataSet1TableAdapters.TableAdapterManager
     Friend WithEvents Tbl_sectionBindingNavigator As BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As ToolStripLabel

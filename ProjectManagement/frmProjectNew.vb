@@ -2,7 +2,7 @@
     Private Sub frmProjectNew_Load(sender As Object, e As EventArgs) Handles Me.Load
         'コネクションを指定する
         Using connection As New SqlClient.SqlConnection(
-            My.Settings.project_jobConnectionString)
+            My.Settings.project_jobConnectionString1)
 
             'データコマンドを作成する
             Dim command As SqlClient.SqlCommand = connection.CreateCommand()
@@ -51,8 +51,8 @@
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         '行の定義
-        Dim newrecord As project_jobDataSet.tbl_projectRow =
-            Me.Project_jobDataSet1.tbl_project.Newtbl_projectRow()
+        Dim newrecord As Project_jobDataSet1.tbl_projectRow =
+            Me.Project_jobDataSet11.tbl_project.Newtbl_projectRow()
 
         'プロジェクトコードのチェック（必須、入力桁数）
         With txtProjectCode
@@ -102,10 +102,10 @@
             newrecord.end_date = dtpEndDate.Value.Date                  '終了日
 
             '新規行をデータテーブルに追加する
-            Me.Project_jobDataSet1.tbl_project.Addtbl_projectRow(newrecord)
+            Me.Project_jobDataSet11.tbl_project.Addtbl_projectRow(newrecord)
 
             'テーブルアダプターを介して、tbl_projectテーブルを更新する
-            Me.Tbl_projectTableAdapter1.Update(Me.Project_jobDataSet1.tbl_project)
+            Me.Tbl_projectTableAdapter1.Update(Me.Project_jobDataSet11.tbl_project)
 
         Catch ex As Exception
             'エラーメッセージを表示する

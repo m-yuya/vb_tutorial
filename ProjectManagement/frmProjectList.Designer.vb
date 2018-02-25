@@ -63,14 +63,14 @@ Partial Class frmProjectList
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Vw_projectlistBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Project_jobDataSet = New ProjectManagement.project_jobDataSet()
-        Me.Vw_projectlistTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.vw_projectlistTableAdapter()
-        Me.TableAdapterManager = New ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager()
+        Me.Project_jobDataSet1 = New ProjectManagement.Project_jobDataSet1()
+        Me.Vw_projectlistTableAdapter = New ProjectManagement.Project_jobDataSet1TableAdapters.vw_projectlistTableAdapter()
+        Me.TableAdapterManager = New ProjectManagement.Project_jobDataSet1TableAdapters.TableAdapterManager()
         CType(Me.Vw_projectlistBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Vw_projectlistBindingNavigator.SuspendLayout()
         CType(Me.grdProjectList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_projectlistBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Vw_projectlistBindingNavigator
@@ -418,12 +418,12 @@ Partial Class frmProjectList
         'Vw_projectlistBindingSource
         '
         Me.Vw_projectlistBindingSource.DataMember = "vw_projectlist"
-        Me.Vw_projectlistBindingSource.DataSource = Me.Project_jobDataSet
+        Me.Vw_projectlistBindingSource.DataSource = Me.Project_jobDataSet1
         '
-        'Project_jobDataSet
+        'Project_jobDataSet1
         '
-        Me.Project_jobDataSet.DataSetName = "project_jobDataSet"
-        Me.Project_jobDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Project_jobDataSet1.DataSetName = "Project_jobDataSet1"
+        Me.Project_jobDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Vw_projectlistTableAdapter
         '
@@ -438,7 +438,7 @@ Partial Class frmProjectList
         Me.TableAdapterManager.tbl_projectTableAdapter = Nothing
         Me.TableAdapterManager.tbl_sectionTableAdapter = Nothing
         Me.TableAdapterManager.tbl_staffTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UpdateOrder = ProjectManagement.Project_jobDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'frmProjectList
         '
@@ -471,16 +471,16 @@ Partial Class frmProjectList
         Me.Vw_projectlistBindingNavigator.PerformLayout()
         CType(Me.grdProjectList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Vw_projectlistBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Project_jobDataSet As project_jobDataSet
+    Friend WithEvents Project_jobDataSet1 As Project_jobDataSet1
     Friend WithEvents Vw_projectlistBindingSource As BindingSource
-    Friend WithEvents Vw_projectlistTableAdapter As project_jobDataSetTableAdapters.vw_projectlistTableAdapter
-    Friend WithEvents TableAdapterManager As project_jobDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents Vw_projectlistTableAdapter As Project_jobDataSet1TableAdapters.vw_projectlistTableAdapter
+    Friend WithEvents TableAdapterManager As Project_jobDataSet1TableAdapters.TableAdapterManager
     Friend WithEvents Vw_projectlistBindingNavigator As BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As ToolStripLabel

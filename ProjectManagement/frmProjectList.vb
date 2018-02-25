@@ -20,7 +20,7 @@
 
         'コネクションを指定する
         Using connection As New SqlClient.SqlConnection(
-            My.Settings.project_jobConnectionString)
+            My.Settings.project_jobConnectionString1)
 
             'データコマンドを作成する
             Dim command As SqlClient.SqlCommand = connection.CreateCommand()
@@ -168,13 +168,13 @@
 
         'データアダプターにSQLステートメントを設定する
         Dim da As New SqlClient.SqlDataAdapter(
-            sql, My.Settings.project_jobConnectionString)
+            sql, My.Settings.project_jobConnectionString1)
 
         'データテーブルをクリアする
-        Me.Project_jobDataSet.vw_projectlist.Clear()
+        Me.Project_jobDataSet1.vw_projectlist.Clear()
 
         'データテーブルにデータアダプターを介してデータをセットする
-        da.Fill(Me.Project_jobDataSet.vw_projectlist)
+        da.Fill(Me.Project_jobDataSet1.vw_projectlist)
     End Sub
 
     Private Sub btnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click

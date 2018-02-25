@@ -76,7 +76,7 @@
 
         'コネクションを指定する
         Using connection As New SqlClient.SqlConnection(
-            My.Settings.project_jobConnectionString)
+            My.Settings.project_jobConnectionString1)
 
             'データコマンドを定義する
             Dim command As New SqlClient.SqlCommand("SELECT * FROM tbl_customer",

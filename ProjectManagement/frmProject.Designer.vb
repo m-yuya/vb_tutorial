@@ -34,7 +34,7 @@ Partial Class frmProject
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtProjectCode = New System.Windows.Forms.TextBox()
         Me.Tbl_projectBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Project_jobDataSet = New ProjectManagement.project_jobDataSet()
+        Me.Project_jobDataSet1 = New ProjectManagement.Project_jobDataSet1()
         Me.txtProjectName = New System.Windows.Forms.TextBox()
         Me.cmbCustomer = New System.Windows.Forms.ComboBox()
         Me.Tbl_customerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -44,10 +44,10 @@ Partial Class frmProject
         Me.dtpEndDate = New System.Windows.Forms.DateTimePicker()
         Me.txtMemo = New System.Windows.Forms.TextBox()
         Me.chkCompleteFlag = New System.Windows.Forms.CheckBox()
-        Me.Tbl_projectTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_projectTableAdapter()
-        Me.TableAdapterManager = New ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager()
-        Me.Tbl_customerTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_customerTableAdapter()
-        Me.Tbl_staffTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_staffTableAdapter()
+        Me.Tbl_projectTableAdapter = New ProjectManagement.Project_jobDataSet1TableAdapters.tbl_projectTableAdapter()
+        Me.TableAdapterManager = New ProjectManagement.Project_jobDataSet1TableAdapters.TableAdapterManager()
+        Me.Tbl_customerTableAdapter = New ProjectManagement.Project_jobDataSet1TableAdapters.tbl_customerTableAdapter()
+        Me.Tbl_staffTableAdapter = New ProjectManagement.Project_jobDataSet1TableAdapters.tbl_staffTableAdapter()
         Me.Tbl_projectBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
@@ -65,7 +65,7 @@ Partial Class frmProject
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.Tbl_jobBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Tbl_jobTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.tbl_jobTableAdapter()
+        Me.Tbl_jobTableAdapter = New ProjectManagement.Project_jobDataSet1TableAdapters.tbl_jobTableAdapter()
         Me.Tbl_jobDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -84,7 +84,7 @@ Partial Class frmProject
         MemoLabel = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.Tbl_projectBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_customerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_staffBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_projectBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -192,12 +192,12 @@ Partial Class frmProject
         'Tbl_projectBindingSource
         '
         Me.Tbl_projectBindingSource.DataMember = "tbl_project"
-        Me.Tbl_projectBindingSource.DataSource = Me.Project_jobDataSet
+        Me.Tbl_projectBindingSource.DataSource = Me.Project_jobDataSet1
         '
-        'Project_jobDataSet
+        'Project_jobDataSet1
         '
-        Me.Project_jobDataSet.DataSetName = "project_jobDataSet"
-        Me.Project_jobDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Project_jobDataSet1.DataSetName = "Project_jobDataSet1"
+        Me.Project_jobDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'txtProjectName
         '
@@ -224,7 +224,7 @@ Partial Class frmProject
         'Tbl_customerBindingSource
         '
         Me.Tbl_customerBindingSource.DataMember = "tbl_customer"
-        Me.Tbl_customerBindingSource.DataSource = Me.Project_jobDataSet
+        Me.Tbl_customerBindingSource.DataSource = Me.Project_jobDataSet1
         '
         'cmbManager
         '
@@ -242,7 +242,7 @@ Partial Class frmProject
         'Tbl_staffBindingSource
         '
         Me.Tbl_staffBindingSource.DataMember = "tbl_staff"
-        Me.Tbl_staffBindingSource.DataSource = Me.Project_jobDataSet
+        Me.Tbl_staffBindingSource.DataSource = Me.Project_jobDataSet1
         '
         'dtpStartDate
         '
@@ -292,7 +292,7 @@ Partial Class frmProject
         Me.TableAdapterManager.tbl_projectTableAdapter = Me.Tbl_projectTableAdapter
         Me.TableAdapterManager.tbl_sectionTableAdapter = Nothing
         Me.TableAdapterManager.tbl_staffTableAdapter = Me.Tbl_staffTableAdapter
-        Me.TableAdapterManager.UpdateOrder = ProjectManagement.project_jobDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UpdateOrder = ProjectManagement.Project_jobDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Tbl_customerTableAdapter
         '
@@ -444,7 +444,7 @@ Partial Class frmProject
         'Tbl_jobBindingSource
         '
         Me.Tbl_jobBindingSource.DataMember = "tbl_job"
-        Me.Tbl_jobBindingSource.DataSource = Me.Project_jobDataSet
+        Me.Tbl_jobBindingSource.DataSource = Me.Project_jobDataSet1
         '
         'Tbl_jobTableAdapter
         '
@@ -506,7 +506,7 @@ Partial Class frmProject
         'TblstaffBindingSource
         '
         Me.TblstaffBindingSource.DataMember = "tbl_staff"
-        Me.TblstaffBindingSource.DataSource = Me.Project_jobDataSet
+        Me.TblstaffBindingSource.DataSource = Me.Project_jobDataSet1
         '
         'DataGridViewTextBoxColumn5
         '
@@ -548,7 +548,7 @@ Partial Class frmProject
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.Tbl_projectBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Project_jobDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tbl_customerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tbl_staffBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tbl_projectBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
@@ -563,10 +563,10 @@ Partial Class frmProject
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Project_jobDataSet As project_jobDataSet
+    Friend WithEvents Project_jobDataSet1 As Project_jobDataSet1
     Friend WithEvents Tbl_projectBindingSource As BindingSource
-    Friend WithEvents Tbl_projectTableAdapter As project_jobDataSetTableAdapters.tbl_projectTableAdapter
-    Friend WithEvents TableAdapterManager As project_jobDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents Tbl_projectTableAdapter As Project_jobDataSet1TableAdapters.tbl_projectTableAdapter
+    Friend WithEvents TableAdapterManager As Project_jobDataSet1TableAdapters.TableAdapterManager
     Friend WithEvents Tbl_projectBindingNavigator As BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As ToolStripLabel
@@ -588,15 +588,15 @@ Partial Class frmProject
     Friend WithEvents dtpEndDate As DateTimePicker
     Friend WithEvents txtMemo As TextBox
     Friend WithEvents chkCompleteFlag As CheckBox
-    Friend WithEvents Tbl_customerTableAdapter As project_jobDataSetTableAdapters.tbl_customerTableAdapter
+    Friend WithEvents Tbl_customerTableAdapter As Project_jobDataSet1TableAdapters.tbl_customerTableAdapter
     Friend WithEvents Tbl_customerBindingSource As BindingSource
-    Friend WithEvents Tbl_staffTableAdapter As project_jobDataSetTableAdapters.tbl_staffTableAdapter
+    Friend WithEvents Tbl_staffTableAdapter As Project_jobDataSet1TableAdapters.tbl_staffTableAdapter
     Friend WithEvents Tbl_staffBindingSource As BindingSource
     Friend WithEvents btnExit As Button
     Friend WithEvents btnUpdate As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents Tbl_jobBindingSource As BindingSource
-    Friend WithEvents Tbl_jobTableAdapter As project_jobDataSetTableAdapters.tbl_jobTableAdapter
+    Friend WithEvents Tbl_jobTableAdapter As Project_jobDataSet1TableAdapters.tbl_jobTableAdapter
     Friend WithEvents Tbl_jobDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn

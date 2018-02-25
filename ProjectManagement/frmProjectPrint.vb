@@ -2,7 +2,7 @@
     Private Sub frmProjectPrint_Load(sender As Object, e As EventArgs) Handles Me.Load
         'コネクションを指定する
         Using connection As New SqlClient.SqlConnection(
-            My.Settings.project_jobConnectionString)
+            My.Settings.project_jobConnectionString1)
 
             'データコマンドを作成する
             Dim command As SqlClient.SqlCommand = connection.CreateCommand()

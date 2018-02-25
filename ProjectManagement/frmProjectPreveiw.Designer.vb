@@ -26,10 +26,10 @@ Partial Class frmProjectPreveiw
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.DirectoryEntry1 = New System.DirectoryServices.DirectoryEntry()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.project_jobDataSet = New ProjectManagement.project_jobDataSet()
+        Me.Project_jobDataSet1 = New ProjectManagement.Project_jobDataSet1()
         Me.vw_projectlistBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.vw_projectlistTableAdapter = New ProjectManagement.project_jobDataSetTableAdapters.vw_projectlistTableAdapter()
-        CType(Me.project_jobDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.vw_projectlistTableAdapter = New ProjectManagement.Project_jobDataSet1TableAdapters.vw_projectlistTableAdapter()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vw_projectlistBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -46,15 +46,15 @@ Partial Class frmProjectPreveiw
         Me.ReportViewer1.Size = New System.Drawing.Size(784, 561)
         Me.ReportViewer1.TabIndex = 0
         '
-        'project_jobDataSet
+        'Project_jobDataSet1
         '
-        Me.project_jobDataSet.DataSetName = "project_jobDataSet"
-        Me.project_jobDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Project_jobDataSet1.DataSetName = "Project_jobDataSet1"
+        Me.Project_jobDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'vw_projectlistBindingSource
         '
         Me.vw_projectlistBindingSource.DataMember = "vw_projectlist"
-        Me.vw_projectlistBindingSource.DataSource = Me.project_jobDataSet
+        Me.vw_projectlistBindingSource.DataSource = Me.Project_jobDataSet1
         '
         'vw_projectlistTableAdapter
         '
@@ -68,7 +68,7 @@ Partial Class frmProjectPreveiw
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "frmProjectPreveiw"
         Me.Text = "プロジェクト一覧プレビュー"
-        CType(Me.project_jobDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vw_projectlistBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -77,6 +77,6 @@ Partial Class frmProjectPreveiw
     Friend WithEvents DirectoryEntry1 As DirectoryServices.DirectoryEntry
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents vw_projectlistBindingSource As BindingSource
-    Friend WithEvents project_jobDataSet As project_jobDataSet
-    Friend WithEvents vw_projectlistTableAdapter As project_jobDataSetTableAdapters.vw_projectlistTableAdapter
+    Friend WithEvents Project_jobDataSet1 As Project_jobDataSet1
+    Friend WithEvents vw_projectlistTableAdapter As Project_jobDataSet1TableAdapters.vw_projectlistTableAdapter
 End Class

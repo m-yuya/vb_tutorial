@@ -29,8 +29,8 @@ Partial Class frmProjectNew
         Dim Start_dateLabel As System.Windows.Forms.Label
         Dim End_dateLabel As System.Windows.Forms.Label
         Dim MemoLabel As System.Windows.Forms.Label
-        Me.Project_jobDataSet1 = New ProjectManagement.project_jobDataSet()
-        Me.Tbl_projectTableAdapter1 = New ProjectManagement.project_jobDataSetTableAdapters.tbl_projectTableAdapter()
+        Me.Project_jobDataSet11 = New ProjectManagement.Project_jobDataSet1()
+        Me.Tbl_projectTableAdapter1 = New ProjectManagement.Project_jobDataSet1TableAdapters.tbl_projectTableAdapter()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtProjectCode = New System.Windows.Forms.TextBox()
         Me.txtProjectName = New System.Windows.Forms.TextBox()
@@ -49,7 +49,7 @@ Partial Class frmProjectNew
         Start_dateLabel = New System.Windows.Forms.Label()
         End_dateLabel = New System.Windows.Forms.Label()
         MemoLabel = New System.Windows.Forms.Label()
-        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Project_jobDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -116,10 +116,10 @@ Partial Class frmProjectNew
         MemoLabel.TabIndex = 12
         MemoLabel.Text = "メモ："
         '
-        'Project_jobDataSet1
+        'Project_jobDataSet11
         '
-        Me.Project_jobDataSet1.DataSetName = "project_jobDataSet"
-        Me.Project_jobDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Project_jobDataSet11.DataSetName = "Project_jobDataSet1"
+        Me.Project_jobDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Tbl_projectTableAdapter1
         '
@@ -245,15 +245,15 @@ Partial Class frmProjectNew
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frmProjectNew"
         Me.Text = "プロジェクト新規登録"
-        CType(Me.Project_jobDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Project_jobDataSet11, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents Project_jobDataSet1 As project_jobDataSet
-    Friend WithEvents Tbl_projectTableAdapter1 As project_jobDataSetTableAdapters.tbl_projectTableAdapter
+    Friend WithEvents Project_jobDataSet11 As Project_jobDataSet1
+    Friend WithEvents Tbl_projectTableAdapter1 As Project_jobDataSet1TableAdapters.tbl_projectTableAdapter
     Friend WithEvents Panel1 As Panel
     Friend WithEvents txtProjectCode As TextBox
     Friend WithEvents txtProjectName As TextBox
